@@ -1,6 +1,17 @@
 # Gas Price Reporting Index
 
 > Collection of All Gas Price Prediction and Reporting Services and their various formats
+> 
+
+
+#### Fee Speed Definitions
+
+Fastest: next block (i.e. <30 seconds)
+Fast: below 2 minutes (<10 blocks)
+Medium: around 5 minutes (<20 blocks)
+Slow: below 30 minutes (a.k.a safe-low, <120 blocks)
+
+
 
 ### gaswatch
 ```json
