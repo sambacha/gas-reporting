@@ -207,13 +207,49 @@
 }
 ```
 
+### MyCrypto
+
+```json
+{"safeLow":159,"standard":184,"fast":262,"fastest":289,"blockNum":11907235}
+```
+
+```json
+{
+    "safeLow": 159,
+    "standard": 184,
+    "fast": 262,
+    "fastest": 289,
+    "blockNum": 11907235
+}
+```
+
+### EtherScan
+
+[api endpoint *key required*](https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${YOUR_API_KEY})
+
+```json
+{"status":"1","message":"OK","result":{"LastBlock":"11907242","SafeGasPrice":"248","ProposeGasPrice":"269","FastGasPrice":"294"}}
+```
+
+```json
+{
+    "status": "1",
+    "message": "OK",
+    "result": {
+        "LastBlock": "11907242",
+        "SafeGasPrice": "248",
+        "ProposeGasPrice": "269",
+        "FastGasPrice": "294"
+    }
+}
+```
+
 
 ## URL Index
 
 Current offchain list:
 
 - https://ethgasstation.info/json/ethgasAPI.json
-- https://gas-oracle.zoltu.io/
 - https://www.etherchain.org/api/gasPriceOracle
 - https://gasprice.poa.network/
 - https://www.gasnow.org/api/v3/gas/price
