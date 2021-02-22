@@ -1,17 +1,33 @@
 # Gas Price Reporting Index
 
 > Collection of All Gas Price Prediction and Reporting Services and their various formats
-> 
 
 
-#### Fee Speed Definitions
+### Fee Speed Definitions
 
-Fastest: next block (i.e. <30 seconds)
-Fast: below 2 minutes (<10 blocks)
-Medium: around 5 minutes (<20 blocks)
-Slow: below 30 minutes (a.k.a safe-low, <120 blocks)
+Fastest: next block (i.e. <30 seconds) <br>
+Fast: below 2 minutes (<10 blocks)  <br>
+Medium: around 5 minutes (<20 blocks)  <br>
+Slow: below 30 minutes (a.k.a safe-low, <120 blocks)  <br>
+ <br>
 
 
+
+## Catalog
+
+- [Gas Price Reporting Index](#gas-price-reporting-index)
+    + [Fee Speed Definitions](#fee-speed-definitions)
+  * [Catalog](#catalog)
+    + [gaswatch](#gaswatch)
+    + [gnosis](#gnosis)
+    + [MetaMask  / Consensys CoDeFi](#metamask----consensys-codefi)
+    + [ethGasStation](#ethgasstation)
+    + [etherchain.org](#etherchainorg)
+    + [poanetwork](#poanetwork)
+    + [Zoltu](#zoltu)
+    + [MyCrypto](#mycrypto)
+    + [EtherScan](#etherscan)
+  * [URL Index](#url-index)
 
 ### gaswatch
 ```json
