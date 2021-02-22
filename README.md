@@ -168,6 +168,45 @@
 }
 ```
 
+### Zoltu
+
+> nanoeth is the **SI** nomenclature for `gwei`
+
+```json
+{
+    "number_of_blocks": 200,
+    "latest_block_number": 11907178,
+    "percentile_1": "1e-9 nanoeth",
+    "percentile_2": "0.00001 nanoeth",
+    "percentile_3": "0.000011001 nanoeth",
+    "percentile_4": "1 nanoeth",
+    "percentile_5": "6 nanoeth",
+    "percentile_10": "10 nanoeth",
+    "percentile_15": "152 nanoeth",
+    "percentile_20": "170 nanoeth",
+    "percentile_25": "181.5 nanoeth",
+    "percentile_30": "190.000001459 nanoeth",
+    "percentile_35": "200 nanoeth",
+    "percentile_40": "214.76 nanoeth",
+    "percentile_45": "222.814063547 nanoeth",
+    "percentile_50": "229.9 nanoeth",
+    "percentile_55": "232 nanoeth",
+    "percentile_60": "245 nanoeth",
+    "percentile_65": "256 nanoeth",
+    "percentile_70": "262 nanoeth",
+    "percentile_75": "270.6 nanoeth",
+    "percentile_80": "278 nanoeth",
+    "percentile_85": "289.02 nanoeth",
+    "percentile_90": "300 nanoeth",
+    "percentile_95": "314.4 nanoeth",
+    "percentile_96": "315.21 nanoeth",
+    "percentile_97": "316.075841562 nanoeth",
+    "percentile_98": "325 nanoeth",
+    "percentile_99": "326 nanoeth",
+    "percentile_100": "348 nanoeth"
+}
+```
+
 
 ## URL Index
 
