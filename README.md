@@ -21,6 +21,7 @@ Slow: below 30 minutes (a.k.a safe-low, <120 blocks)  <br>
     + [gaswatch](#gaswatch)
     + [gnosis](#gnosis)
     + [MetaMask  / Consensys CoDeFi](#metamask----consensys-codefi)
+    + [1Inch Exchange](#1inch)
     + [ethGasStation](#ethgasstation)
     + [etherchain.org](#etherchainorg)
     + [poanetwork](#poanetwork)
@@ -65,6 +66,35 @@ Slow: below 30 minutes (a.k.a safe-low, <120 blocks)  <br>
     "FastGasPrice": "119"
 }
 ```
+
+#### 1inch 
+
+[https://gas-price-api.1inch.exchange/v1.0](https://gas-price-api.1inch.exchange/v1.0)
+
+```http
+GET https://gas-price-api.1inch.exchange/v1.0 HTTP/1.1
+Host:gas-price-api.1inch.exchange
+User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:87.0) Gecko/20100101 Firefox/87.0
+Accept:application/json, text/plain, */*
+Accept-Language:en-US,en;q=0.5
+Accept-Encoding:gzip, deflate, br
+Referer:https://1inch.exchange/
+Origin:https://1inch.exchange
+Connection:keep-alive
+If-None-Match:W/"55-14kgjK/la5g2ZUcb/96cMvcDlDQ"
+Content-Type:text/plain
+```
+
+
+```json
+{
+  "fast": 96820000000,
+  "instant": 125000000000,
+  "standard": 90000000000,
+  "slow": 82000000000
+}
+```
+
 
 ### ethGasStation 
 
