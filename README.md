@@ -30,7 +30,7 @@ Slow: below 30 minutes (a.k.a safe-low, <120 blocks)  <br>
     + [EtherScan](#etherscan)
   * [URL Index](#url-index)
 
-### gaswatch
+### gaswatch (gasnow.org/taichi)
 ```json
 {"code":200,"data":{"rapid":131000000000,"fast":116000000000,"standard":100000000000,"slow":91600000000,"timestamp":1613914581546}}
 ```
