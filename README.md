@@ -30,6 +30,51 @@ Slow: below 30 minutes (a.k.a safe-low, <120 blocks)  <br>
     + [EtherScan](#etherscan)
   * [URL Index](#url-index)
 
+
+### api.txprice.com
+
+```jsonc
+{
+    "system": "ethereum",
+    "network": "main",
+    "unit": "gwei",
+    "maxPrice": 336,
+    "currentBlockNumber": 13095949,
+    "msSinceLastBlock": 4542,
+    "blockPrices": [{
+        "blockNumber": 13095950,
+        "baseFeePerGas": 113.110076547,
+        "estimatedTransactionCount": 172,
+        "estimatedPrices": [{
+            "confidence": 99,
+            "price": 129,
+            "maxPriorityFeePerGas": 15.96,
+            "maxFeePerGas": 242.18
+        }, {
+            "confidence": 95,
+            "price": 119,
+            "maxPriorityFeePerGas": 6.84,
+            "maxFeePerGas": 233.06
+        }, {
+            "confidence": 90,
+            "price": 118,
+            "maxPriorityFeePerGas": 5.09,
+            "maxFeePerGas": 231.31
+        }, {
+            "confidence": 80,
+            "price": 116,
+            "maxPriorityFeePerGas": 3.21,
+            "maxFeePerGas": 229.43
+        }, {
+            "confidence": 70,
+            "price": 115,
+            "maxPriorityFeePerGas": 2.28,
+            "maxFeePerGas": 228.5
+        }]
+    }]
+}
+```
+
 ### gaswatch (gasnow.org/taichi)
 ```json
 {"code":200,"data":{"rapid":131000000000,"fast":116000000000,"standard":100000000000,"slow":91600000000,"timestamp":1613914581546}}
