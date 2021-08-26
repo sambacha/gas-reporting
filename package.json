@@ -1,7 +1,7 @@
 {
   "name": "gas_reporting",
   "version": "1.0.0",
-  "description": "> Collection of All Gas Price Prediction and Reporting Services and their various formats",
+  "description": "Multi Chain Collection of All Gas Price Prediction and Reporting Services and their various formats",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,11 +10,20 @@
     "type": "git",
     "url": "git+https://github.com/sambacha/gas-reporting.git"
   },
-  "keywords": ["ethereum", "gwei", "gas", "solidity", "blockchain"],
+  "keywords": [
+    "ethereum",
+    "gwei",
+    "gas",
+    "solidity",
+    "blockchain"
+  ],
   "author": "SEE CONTRIBUTORS",
   "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/sambacha/gas-reporting/issues"
   },
-  "homepage": "https://github.com/sambacha/gas-reporting#readme"
+  "homepage": "https://github.com/sambacha/gas-reporting#readme",
+  "devDependencies": {
+    "json-lint-d-ts": "^1.2.2"
+  }
 }
