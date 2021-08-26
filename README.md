@@ -101,7 +101,27 @@ Slow: below 30 minutes (a.k.a safe-low, <120 blocks)  <br>
 [endpoint url](https://api.metaswap.codefi.network/gasPrices)
 
 ```json 
-{"SafeGasPrice":"100","ProposeGasPrice":"108","FastGasPrice":"119"}
+{
+    "low": {
+        "suggestedMaxPriorityFeePerGas": "1.37826449268",
+        "suggestedMaxFeePerGas": "70.067746222",
+        "minWaitTimeEstimate": 15000,
+        "maxWaitTimeEstimate": 30000
+    },
+    "medium": {
+        "suggestedMaxPriorityFeePerGas": "1.5",
+        "suggestedMaxFeePerGas": "81.637728684",
+        "minWaitTimeEstimate": 15000,
+        "maxWaitTimeEstimate": 45000
+    },
+    "high": {
+        "suggestedMaxPriorityFeePerGas": "2",
+        "suggestedMaxFeePerGas": "93.585975639",
+        "minWaitTimeEstimate": 15000,
+        "maxWaitTimeEstimate": 60000
+    },
+    "estimatedBaseFee": "57.241234774"
+}
 ```
 
 ```json
