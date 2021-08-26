@@ -80,6 +80,8 @@ Slow: below 30 minutes (a.k.a safe-low, <120 blocks)  <br>
 ```bash
 wss://www.gasnow.org/ws
 ```
+
+```json
 {
     "type": "gasprice",
     "data": {
@@ -168,7 +170,8 @@ wss://www.gasnow.org/ws
         "timestamp": 1629975608579
     }
 }
-```json
+```
+<br>
 
 #### Legacy GasNow 
 
