@@ -474,6 +474,17 @@ Content-Type:text/plain
 }
 ```
 
+## Zapper 
+
+[http://api.zapper.fi/v1/gas-price](http://api.zapper.fi/v1/gas-price)
+
+```json
+{
+    "standard": 113,
+    "fast": 114,
+    "instant": 136
+}
+```
 
 ## URL Index
 
