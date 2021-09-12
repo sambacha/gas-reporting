@@ -1,0 +1,21 @@
+{
+    "low": {
+        "suggestedMaxPriorityFeePerGas": "1.17112344",
+        "suggestedMaxFeePerGas": "44.587124874",
+        "minWaitTimeEstimate": 15000,
+        "maxWaitTimeEstimate": 30000
+    },
+    "medium": {
+        "suggestedMaxPriorityFeePerGas": "1.5",
+        "suggestedMaxFeePerGas": "52.152001673",
+        "minWaitTimeEstimate": 15000,
+        "maxWaitTimeEstimate": 45000
+    },
+    "high": {
+        "suggestedMaxPriorityFeePerGas": "2",
+        "suggestedMaxFeePerGas": "59.888001912",
+        "minWaitTimeEstimate": 15000,
+        "maxWaitTimeEstimate": 60000
+    },
+    "estimatedBaseFee": "36.180001195"
+}
