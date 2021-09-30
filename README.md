@@ -3,35 +3,48 @@
 > Collection of All Gas Price Prediction and Reporting Services and their various formats
 
 
+#### Notice: GasNow will be shutting down due to SparkPools closure
+
+## [TOC]
+
+  * [Fee Speed Definitions](#fee-speed-definitions)
+  * [api.txprice.com/blocknative](#apitxpricecom)
+  * [GasNow](#gasnow)
+    + [GasNow Legacy](#gasnow-legacy)
+  * [Gnosis](#gnosis)
+  * [MetaMas](#metamas)
+    + [Consensys CoDeFi](#consensys-codefi)
+  * [1inch](#1inch)
+  * [ethGasStation](#ethgasstation)
+  * [etherchain.org](#etherchainorg)
+  * [poanetwork](#poanetwork)
+  * [Zoltu](#zoltu)
+  * [MyCrypto](#mycrypto)
+  * [EtherScan](#etherscan)
+- [Zapper](#zapper)
+- [URL Index](#url-index)
+
+
+
+### Cite This Work
+```latex
+ @article{'Gas Price Reporting Index', 
+          title={'Transaction Pricing and Reporting Survey for Ethereum'}, 
+          url={'https://github.com/sambacha/gas-reporting'}, 
+          author={Bacha, Sam}} 
+```
+
 ### Fee Speed Definitions
 
-Fastest: next block (i.e. <30 seconds) <br>
-Fast: below 2 minutes (<10 blocks)  <br>
-Medium: around 5 minutes (<20 blocks)  <br>
-Slow: below 30 minutes (a.k.a safe-low, <120 blocks)  <br>
- <br>
-
-
-
-## Catalog
-
-- [Gas Price Reporting Index](#gas-price-reporting-index)
-    + [Fee Speed Definitions](#fee-speed-definitions)
-  * [Catalog](#catalog)
-    + [gaswatch](#gaswatch)
-    + [gnosis](#gnosis)
-    + [MetaMask  / Consensys CoDeFi](#metamask----consensys-codefi)
-    + [1Inch Exchange](#1inch)
-    + [ethGasStation](#ethgasstation)
-    + [etherchain.org](#etherchainorg)
-    + [poanetwork](#poanetwork)
-    + [Zoltu](#zoltu)
-    + [MyCrypto](#mycrypto)
-    + [EtherScan](#etherscan)
-  * [URL Index](#url-index)
+- Fastest: next block (i.e. <30 seconds) <br>
+- Fast: below 2 minutes (<10 blocks)  <br>
+- Medium: around 5 minutes (<20 blocks)  <br>
+- Slow: below 30 minutes (a.k.a safe-low, <120 blocks)  <br>
 
 
 ### api.txprice.com
+
+> Note: This is a proxy for BlockNative's Gas Pricing Service
 
 ```jsonc
 {
@@ -75,7 +88,9 @@ Slow: below 30 minutes (a.k.a safe-low, <120 blocks)  <br>
 }
 ```
 
-### gaswatch (gasnow.org/taichi)
+### GasNow 
+
+> gasnow.org/taichi
 
 ```bash
 wss://www.gasnow.org/ws
@@ -173,7 +188,7 @@ wss://www.gasnow.org/ws
 ```
 <br>
 
-#### Legacy GasNow 
+#### GasNow Legacy
 
 ```json
 {
@@ -188,7 +203,7 @@ wss://www.gasnow.org/ws
 }
 ```
 
-### gnosis
+### Gnosis
 
 [endpoint url](https://safe-relay.gnosis.io/api/v1/gas-station/)
 
@@ -204,7 +219,8 @@ wss://www.gasnow.org/ws
 }
 ```
 
-### MetaMask  / Consensys CoDeFi
+### MetaMas
+#### Consensys CoDeFi
 
 [endpoint url](https://api.metaswap.codefi.network/gasPrices)
 
