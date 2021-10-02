@@ -9,19 +9,21 @@
 
   * [Fee Speed Definitions](#fee-speed-definitions)
   * [api.txprice.com/blocknative](#apitxpricecom)
-  * [GasNow](#gasnow)
+  * [WalletConnect Ethereum-API](#WalletConnect-Ethereum-API)
+  * [EtherScan.io](#etherscan)
+  * [GasNow - No Longer in Service](#gasnow)
     + [GasNow Legacy](#gasnow-legacy)
   * [Gnosis](#gnosis)
-  * [MetaMas](#metamas)
+  * [MetaMask](#metamask)
     + [Consensys CoDeFi](#consensys-codefi)
   * [1inch](#1inch)
   * [ethGasStation](#ethgasstation)
   * [etherchain.org](#etherchainorg)
-  * [poanetwork](#poanetwork)
+  * [POA Network](#poanetwork)
   * [Zoltu](#zoltu)
   * [MyCrypto](#mycrypto)
   * [EtherScan](#etherscan)
-- [Zapper](#zapper)
+  * [Zapper](#zapper)
 - [URL Index](#url-index)
 
 
@@ -88,7 +90,60 @@
 }
 ```
 
-### GasNow 
+### WalletConnect-Ethereum-API
+
+> [https://github.com/pedrouid/ethereum-api#api](https://github.com/pedrouid/ethereum-api#api)
+
+[ https://ethereum-api.xyz/gas-prices]( https://ethereum-api.xyz/gas-prices)
+
+```
+http GET https://ethereum-api.xyz/gas-prices
+```
+
+```json
+{
+    "timestamp": 1633172858972,
+    "slow": {
+        "time": 756,
+        "price": 39
+    },
+    "average": {
+        "time": 84,
+        "price": 42
+    },
+    "fast": {
+        "time": 30,
+        "price": 54
+    },
+    "fastest": {
+        "time": 24,
+        "price": 58
+    }
+}
+```
+
+### EtherScan
+
+[https://docs.etherscan.io/api-endpoints/gas-tracker](https://docs.etherscan.io/api-endpoints/gas-tracker)
+
+[https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=YourApiKeyToken](https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=YourApiKeyToken)
+
+```json
+{
+   "status":"1",
+   "message":"OK",
+   "result":{
+      "LastBlock":"13053741",
+      "SafeGasPrice":"20",
+      "ProposeGasPrice":"22",
+      "FastGasPrice":"24",
+      "suggestBaseFee":"19.230609716",
+      "gasUsedRatio":"0.370119078777807,0.8954731,0.550911766666667,0.212457033333333,0.552463633333333"
+   }
+}
+```
+
+### GasNow [no longer in service]
 
 > gasnow.org/taichi
 
@@ -219,7 +274,8 @@ wss://www.gasnow.org/ws
 }
 ```
 
-### MetaMas
+### MetaMask
+
 #### Consensys CoDeFi
 
 [endpoint url](https://api.metaswap.codefi.network/gasPrices)
