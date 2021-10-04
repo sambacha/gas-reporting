@@ -24,11 +24,12 @@
   * [MyCrypto](#mycrypto)
   * [EtherScan](#etherscan)
   * [Zapper](#zapper)
+  * [ArcherDAO/Eden Network](#archerdao)
 - [URL Index](#url-index)
 
 
 
-### Cite This Work
+## Cite This Work
 ```latex
  @article{'Gas Price Reporting Index', 
           title={'Transaction Pricing and Reporting Survey for Ethereum'}, 
@@ -36,7 +37,7 @@
           author={Bacha, Sam}} 
 ```
 
-### Fee Speed Definitions
+## Fee Speed Definitions
 
 - Fastest: next block (i.e. <30 seconds) <br>
 - Fast: below 2 minutes (<10 blocks)  <br>
@@ -546,7 +547,7 @@ Content-Type:text/plain
 }
 ```
 
-## Zapper 
+### Zapper 
 
 [http://api.zapper.fi/v1/gas-price](http://api.zapper.fi/v1/gas-price)
 
@@ -555,6 +556,25 @@ Content-Type:text/plain
     "standard": 113,
     "fast": 114,
     "instant": 136
+}
+```
+
+### archerdao
+
+[https://api.archerdao.io/v1/gas](https://api.archerdao.io/v1/gas)
+
+```json
+{
+  "code": 200,
+  "data": {
+    "immediate": "228202648099",
+    "rapid": "67236905683",
+    "fast": "13591066085",
+    "standard": "1101380018",
+    "slow": "0",
+    "slower": "0",
+    "slowest": "0"
+  }
 }
 ```
 
