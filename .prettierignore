@@ -1,0 +1,5 @@
+dist/
+build/
+*.json
+*.spec.js
+*.spec.ts

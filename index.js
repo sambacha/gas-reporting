@@ -1,3 +1,2 @@
-
-const { version } = require("./package.json");
-const gas = require("./src/index.json");
+const { version } = require('./package.json');
+const gas = require('./src/index.json');

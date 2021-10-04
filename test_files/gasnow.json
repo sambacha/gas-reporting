@@ -1,0 +1,114 @@
+{
+  "type": "gasprice",
+  "data": {
+    "gasPrices": {
+      "rapid": 67000000000,
+      "fast": 64455346560,
+      "standard": 63455346560,
+      "slow": 63455346560
+    },
+    "cumulativeCounts": [
+      {
+        "gwei": "63",
+        "cumulativeCount": 93
+      },
+      {
+        "gwei": "64",
+        "cumulativeCount": 81
+      },
+      {
+        "gwei": "65",
+        "cumulativeCount": 65
+      },
+      {
+        "gwei": "66",
+        "cumulativeCount": 35
+      },
+      {
+        "gwei": "67",
+        "cumulativeCount": 34
+      },
+      {
+        "gwei": "68",
+        "cumulativeCount": 32
+      },
+      {
+        "gwei": "69",
+        "cumulativeCount": 30
+      },
+      {
+        "gwei": "70",
+        "cumulativeCount": 25
+      },
+      {
+        "gwei": "71",
+        "cumulativeCount": 22
+      },
+      {
+        "gwei": "73",
+        "cumulativeCount": 21
+      },
+      {
+        "gwei": "74",
+        "cumulativeCount": 19
+      },
+      {
+        "gwei": "75",
+        "cumulativeCount": 17
+      },
+      {
+        "gwei": "78",
+        "cumulativeCount": 16
+      },
+      {
+        "gwei": "80",
+        "cumulativeCount": 15
+      },
+      {
+        "gwei": "81",
+        "cumulativeCount": 13
+      },
+      {
+        "gwei": "87",
+        "cumulativeCount": 12
+      },
+      {
+        "gwei": "88",
+        "cumulativeCount": 11
+      },
+      {
+        "gwei": "89",
+        "cumulativeCount": 9
+      },
+      {
+        "gwei": "94",
+        "cumulativeCount": 8
+      },
+      {
+        "gwei": "96",
+        "cumulativeCount": 6
+      },
+      {
+        "gwei": "98",
+        "cumulativeCount": 5
+      },
+      {
+        "gwei": "109",
+        "cumulativeCount": 4
+      },
+      {
+        "gwei": "112",
+        "cumulativeCount": 3
+      },
+      {
+        "gwei": "120",
+        "cumulativeCount": 2
+      },
+      {
+        "gwei": "221",
+        "cumulativeCount": 1
+      }
+    ],
+    "timestamp": 1629975608579
+  }
+}
