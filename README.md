@@ -7,6 +7,7 @@
 
 ## [TOC]
 
+- [gas.blocknative.com](#Blocknative-Gas-Estimator)
 - [Fee Speed Definitions](#fee-speed-definitions)
 - [api.txprice.com/blocknative](#apitxpricecom)
 - [WalletConnect Ethereum-API](#WalletConnect-Ethereum-API)
