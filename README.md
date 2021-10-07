@@ -39,8 +39,8 @@
 ```
 ### gas.blocknative.com
 
-> Note: This is a proxy for Blocknative's Gas Pricing Service
-
+> Note: This is powered by Blocknative's global mempool data platform
+ 
 ```jsonc
 {
   "system": "ethereum",
