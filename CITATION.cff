@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software and/or data,, please cite it as below."
+authors: 
+  -
+    family-names: Bacha
+    given-names: Sam
+    orcid: "https://orcid.org/0000-0002-5508-426X"
+title: "Gas Reporting Index"
+version: "1.1.4"
+doi: 10.5281/zenodo.1234
+date-released: 2021-02-21
+url: "https://github.com/sambacha/gas-reporting"
+abstract: |
+    "In this Systematization of Knowledge (SoK) we delineate the various EVM gas pricing API's along the following axes: its reported data, its 
+    data types, latency, and accuracy of pricing transactions within specified intervals. 
+    We provide a distinction between technical accuracy and economic accuracy for these transaction pricing API's. Finally, we provide an 
+    ongoing comparison of these pricing API providers both on reported precision and accuracy of their services."
+keywords: 
+  - "ethereum"
+  - "decentralized finance"
+  - "resource pricing"
+  - "gas pricing"
+license: "Apache-2.0"
