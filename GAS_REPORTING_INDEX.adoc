@@ -1,90 +1,25 @@
-<span align="center">
+== Gas Price Reporting Index
 
-# Gas Price Reporting Index
-
-> Collection of All Gas Price Prediction and Reporting Services and their various formats
-
- </span>
- 
-
- <details>
- <summary> Frontmatter </summary>
- 
-<table>
-<thead>
-  <tr>
-    <th>title<br></th>
-    <th>Gas Price Reporting API Index</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>summary</td>
-    <td>Index of all the different gas pricing API's available</td>
-  </tr>
-  <tr>
-    <td>version</td>
-    <td><a href="mailto:&#x76;&#49;&#x2e;&#x31;&#x2e;&#x35;&#x40;&#x32;&#x30;&#50;&#49;&#x2e;&#49;&#48;&#x2e;&#50;&#50;">v1.1.5@2021.10.22</a></td>
-  </tr>
-  <tr>
-    <td>license</td>
-    <td>CC-NC-2.5 / MIT for code</td>
-  </tr>
-</tbody>
-</table>
- 
- </details>
- 
-> Notice: GasNow as of 2021-10-01 will be shutting down due to SparkPools closure
-
- 
-## [Gas Reporting Index - TOC](https://github.com/sambacha/gas-reporting/edit/master/README.md)
-
-- [Cite This Work](#cite-this-work)
-- [Fee Speed Definitions](#fee-speed-definitions)
-- [Gas Price Reporting Index](#gas-price-reporting-index)
-  * [Cite This Work](#cite-this-work)
-  * [Fee Speed Definitions](#fee-speed-definitions)
-    + [api.txprice.com](#apitxpricecom)
-    + [Blocknative](#blocknative)
-      - [gas.blocknative.com](#gasblocknativecom)
-      - [bnc-ext](#bnc-ext)
-      - [BlockNative Chrome Extenstion](#blocknative-chrome-extenstion)
-      - [sample response](#sample-response)
-    + [WalletConnect](#walletconnect)
-      - [specification](#specification)
-      - [sample response](#sample-response-1)
-    + [Flashbots](#flashbots)
-      - [specification](#specification-1)
-      - [request sample](#request-sample)
-      - [response](#response)
-    + [EtherScan](#etherscan)
-    + [GasNow [no longer in service]](#gasnow--no-longer-in-service-)
-      - [GasNow Legacy](#gasnow-legacy)
-    + [Gnosis](#gnosis)
-    + [MetaMask](#metamask)
-      - [Consensys CoDeFi](#consensys-codefi)
-      - [1inch](#1inch)
-    + [ethGasStation](#ethgasstation)
-    + [etherchain.org](#etherchainorg)
-    + [poanetwork](#poanetwork)
-    + [Zoltu](#zoltu)
-    + [MyCrypto](#mycrypto)
-    + [EtherScan](#etherscan-1)
-    + [Zapper](#zapper)
-    + [archerdao](#archerdao)
-- [URL Index](#url-index)
+____
+Collection of All Gas Price Prediction and Reporting Services and their
+various formats
+____
 
 
-## Cite This Work
 
-> [see CITATION.cff](https://github.com/sambacha/gas-reporting/blob/master/CITATION.cff)
+=== Cite This Work
 
-```latex
+____
+https://github.com/sambacha/gas-reporting/blob/master/CITATION.cff[see CITATION.cff]
+____
+
+[source,latex]
+----
 Bacha, S. (2021). Gas Reporting Index (Version 1.1.5) [Computer software]. https://doi.org/10.5281/zenodo.1234
-```
+----
 
-```bibtex
+[source,bibtex]
+----
 @software{Bacha_Gas_Reporting_Index_2021,
 author = {Bacha, Sam},
 ipfs = {$CID},
@@ -95,21 +30,32 @@ url = {https://github.com/sambacha/gas-reporting},
 version = {1.1.5},
 year = {2021}
 }
-```
+----
 
+Text Styles
+^^^^^^^^^^^
+* normal, _italic_, *bold*, +mono+.
+* ``double quoted'', `single quoted'.
+* normal, ^super^, ~sub~.
+* `passthru *bold*`
 
-## Fee Speed Definitions
+[TOC]
 
-- Fastest: next block (i.e. <30 seconds) <br>
-- Fast: below 2 minutes (<10 blocks) <br>
-- Medium: around 5 minutes (<20 blocks) <br>
-- Slow: below 30 minutes (a.k.a safe-low, <120 blocks) <br>
+=== Fee Speed Definitions
 
-### api.txprice.com
+* Fastest: next block (i.e. <30 seconds)
+* Fast: below 2 minutes (<10 blocks)
+* Medium: around 5 minutes (<20 blocks)
+* Slow: below 30 minutes (a.k.a safe-low, <120 blocks)
 
-> Note: This is a proxy for Blocknative's Gas Pricing Service
+==== api.txprice.com
 
-```jsonc
+____
+Note: This is a proxy for Blocknative’s Gas Pricing Service
+____
+
+[source,jsonc]
+----
 {
   "system": "ethereum",
   "network": "main",
@@ -157,17 +103,22 @@ year = {2021}
     }
   ]
 }
-```
+----
 
-### Blocknative
+==== Blocknative
 
-> @note there are two seperate entries 
+____
+@note there are two seperate entries
+____
 
-#### gas.blocknative.com
+===== gas.blocknative.com
 
-> Note: This is powered by Blocknative's global mempool data platform
- 
-```jsonc
+____
+Note: This is powered by Blocknative’s global mempool data platform
+____
+
+[source,jsonc]
+----
 {
   "system": "ethereum",
   "network": "main",
@@ -215,19 +166,21 @@ year = {2021}
     }
   ]
 }
-```
+----
 
-#### bnc-ext
+===== bnc-ext
 
-#### BlockNative Chrome Extenstion
+===== BlockNative Chrome Extenstion
 
-[blocknative eth gas estimate extenstion](https://chrome.google.com/webstore/detail/blocknative-eth-gas-estim/ablbagjepecncofimgjmdpnhnfjiecfm/)
+https://chrome.google.com/webstore/detail/blocknative-eth-gas-estim/ablbagjepecncofimgjmdpnhnfjiecfm/[blocknative
+eth gas estimate extenstion]
 
-[https://blocknative-api.herokuapp.com/data](https://blocknative-api.herokuapp.com/data)
+https://blocknative-api.herokuapp.com/data
 
-#### sample response 
+===== sample response
 
-```json
+[source,json]
+----
 {
   "pendingBlockNumberVal": 13378149,
   "seconds": 17,
@@ -261,24 +214,24 @@ year = {2021}
   }],
   "baseFeePerGas": 83.897778652
 }
-```
+----
 
+==== WalletConnect
 
-### WalletConnect
+===== specification
 
-#### specification 
+https://github.com/pedrouid/ethereum-api#api
 
-[https://github.com/pedrouid/ethereum-api#api](https://github.com/pedrouid/ethereum-api#api)
+https://ethereum-api.xyz/gas-prices
 
-[https://ethereum-api.xyz/gas-prices](https://ethereum-api.xyz/gas-prices)
-
-```
+....
 http GET https://ethereum-api.xyz/gas-prices
-```
+....
 
-#### sample response 
+===== sample response
 
-```json
+[source,json]
+----
 {
   "timestamp": 1633172858972,
   "slow": {
@@ -298,17 +251,21 @@ http GET https://ethereum-api.xyz/gas-prices
     "price": 58
   }
 }
-```
+----
 
-### Flashbots
+==== Flashbots
 
-> eth_gasFee
+____
+eth_gasFee
+____
 
-#### specification
+===== specification
 
-[see source documentation](https://docs.flashbots.net/flashbots-protect/api/json-rpc#eth_gasfees)
+https://docs.flashbots.net/flashbots-protect/api/json-rpc#eth_gasfees[see
+source documentation]
 
-```jsonc
+[source,jsonc]
+----
 {
   "jsonrpc": "2.0",
   "id": "1",
@@ -333,11 +290,12 @@ http GET https://ethereum-api.xyz/gas-prices
     },
   }
 }
-```
+----
 
+===== request sample
 
-#### request sample
-```sh
+[source,sh]
+----
 curl -s -L -X POST 'https://protection.flashbots.net/v1/rpc' \
 -H 'Content-Type: application/json' \
 --data-raw '{
@@ -346,10 +304,12 @@ curl -s -L -X POST 'https://protection.flashbots.net/v1/rpc' \
   "method": "eth_gasFees",
   "params": []
 }'
-```
-#### response
+----
 
-```json
+===== response
+
+[source,json]
+----
 {
     "jsonrpc": "2.0",
     "id": 1,
@@ -374,16 +334,16 @@ curl -s -L -X POST 'https://protection.flashbots.net/v1/rpc' \
         }
     }
 }
-```
+----
 
+==== EtherScan
 
-### EtherScan
+https://docs.etherscan.io/api-endpoints/gas-tracker
 
-[https://docs.etherscan.io/api-endpoints/gas-tracker](https://docs.etherscan.io/api-endpoints/gas-tracker)
+https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=YourApiKeyToken
 
-[https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=YourApiKeyToken](https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=YourApiKeyToken)
-
-```json
+[source,json]
+----
 {
   "status": "1",
   "message": "OK",
@@ -396,17 +356,21 @@ curl -s -L -X POST 'https://protection.flashbots.net/v1/rpc' \
     "gasUsedRatio": "0.370119078777807,0.8954731,0.550911766666667,0.212457033333333,0.552463633333333"
   }
 }
-```
+----
 
-### GasNow [no longer in service]
+==== GasNow [no longer in service]
 
-> gasnow.org/taichi
+____
+gasnow.org/taichi
+____
 
-```bash
+[source,bash]
+----
 wss://www.gasnow.org/ws
-```
+----
 
-```json
+[source,json]
+----
 {
   "type": "gasprice",
   "data": {
@@ -521,13 +485,12 @@ wss://www.gasnow.org/ws
     "timestamp": 1629975608579
   }
 }
-```
+----
 
-<br>
+===== GasNow Legacy
 
-#### GasNow Legacy
-
-```json
+[source,json]
+----
 {
   "code": 200,
   "data": {
@@ -538,13 +501,14 @@ wss://www.gasnow.org/ws
     "timestamp": 1613914581546
   }
 }
-```
+----
 
-### Gnosis
+==== Gnosis
 
-[endpoint url](https://safe-relay.gnosis.io/api/v1/gas-station/)
+https://safe-relay.gnosis.io/api/v1/gas-station/[endpoint url]
 
-```json
+[source,json]
+----
 {
   "lastUpdate": "2021-02-21T13:38:38.945308Z",
   "lowest": "2",
@@ -553,15 +517,16 @@ wss://www.gasnow.org/ws
   "fast": "131000000001",
   "fastest": "10680081443136"
 }
-```
+----
 
-### MetaMask
+==== MetaMask
 
-#### Consensys CoDeFi
+===== Consensys CoDeFi
 
-[endpoint url](https://api.metaswap.codefi.network/gasPrices)
+https://api.metaswap.codefi.network/gasPrices[endpoint url]
 
-```json
+[source,json]
+----
 {
   "low": {
     "suggestedMaxPriorityFeePerGas": "1.37826449268",
@@ -583,21 +548,23 @@ wss://www.gasnow.org/ws
   },
   "estimatedBaseFee": "57.241234774"
 }
-```
+----
 
-```json
+[source,json]
+----
 {
   "SafeGasPrice": "100",
   "ProposeGasPrice": "108",
   "FastGasPrice": "119"
 }
-```
+----
 
-#### 1inch
+===== 1inch
 
-[https://gas-price-api.1inch.exchange/v1.0](https://gas-price-api.1inch.exchange/v1.0)
+https://gas-price-api.1inch.exchange/v1.0
 
-```http
+[source,http]
+----
 GET https://gas-price-api.1inch.exchange/v1.0 HTTP/1.1
 Host:gas-price-api.1inch.exchange
 User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:87.0) Gecko/20100101 Firefox/87.0
@@ -609,22 +576,24 @@ Origin:https://1inch.exchange
 Connection:keep-alive
 If-None-Match:W/"55-14kgjK/la5g2ZUcb/96cMvcDlDQ"
 Content-Type:text/plain
-```
+----
 
-```json
+[source,json]
+----
 {
   "fast": 96820000000,
   "instant": 125000000000,
   "standard": 90000000000,
   "slow": 82000000000
 }
-```
+----
 
-### ethGasStation
+==== ethGasStation
 
-[endpoint url](https://ethgasstation.info/json/ethgasAPI.json)
+https://ethgasstation.info/json/ethgasAPI.json[endpoint url]
 
-```json
+[source,json]
+----
 {
   "fast": 1200.0,
   "fastest": 1200.0,
@@ -714,9 +683,10 @@ Content-Type:text/plain
     "1050": 1.5
   }
 }
-```
+----
 
-```json
+[source,json]
+----
 {
   "fast": 1200.0,
   "fastest": 1200.0,
@@ -806,21 +776,23 @@ Content-Type:text/plain
     "1050": 1.5
   }
 }
-```
+----
 
-### etherchain.org
+==== etherchain.org
 
-[endpoint url](https://www.etherchain.org/api/gasPriceOracle)
+https://www.etherchain.org/api/gasPriceOracle[endpoint url]
 
-```json
+[source,json]
+----
 { "safeLow": 102, "standard": 105, "fast": 114.6, "fastest": 120 }
-```
+----
 
-### poanetwork
+==== poanetwork
 
-[endpoint url](https://gasprice.poa.network/)
+https://gasprice.poa.network/[endpoint url]
 
-```json
+[source,json]
+----
 {
   "health": true,
   "block_number": 11900628,
@@ -830,9 +802,10 @@ Content-Type:text/plain
   "instant": 130.8,
   "block_time": 13.191
 }
-```
+----
 
-```json
+[source,json]
+----
 {
   "health": true,
   "block_number": 11900628,
@@ -842,13 +815,16 @@ Content-Type:text/plain
   "instant": 130.8,
   "block_time": 13.191
 }
-```
+----
 
-### Zoltu
+==== Zoltu
 
-> nanoeth is the **SI** nomenclature for `gwei`
+____
+nanoeth is the *SI* nomenclature for `gwei`
+____
 
-```json
+[source,json]
+----
 {
   "number_of_blocks": 200,
   "latest_block_number": 11907178,
@@ -881,11 +857,12 @@ Content-Type:text/plain
   "percentile_99": "326 nanoeth",
   "percentile_100": "348 nanoeth"
 }
-```
+----
 
-### MyCrypto
+==== MyCrypto
 
-```json
+[source,json]
+----
 {
   "safeLow": 159,
   "standard": 184,
@@ -893,9 +870,10 @@ Content-Type:text/plain
   "fastest": 289,
   "blockNum": 11907235
 }
-```
+----
 
-```json
+[source,json]
+----
 {
   "safeLow": 159,
   "standard": 184,
@@ -903,13 +881,15 @@ Content-Type:text/plain
   "fastest": 289,
   "blockNum": 11907235
 }
-```
+----
 
-### EtherScan
+==== EtherScan
 
-[api endpoint _key required_](https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${YOUR_API_KEY})
+https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=$%7BYOUR_API_KEY%7D[api
+endpoint _key required_]
 
-```json
+[source,json]
+----
 {
   "status": "1",
   "message": "OK",
@@ -920,9 +900,10 @@ Content-Type:text/plain
     "FastGasPrice": "294"
   }
 }
-```
+----
 
-```json
+[source,json]
+----
 {
   "status": "1",
   "message": "OK",
@@ -933,25 +914,27 @@ Content-Type:text/plain
     "FastGasPrice": "294"
   }
 }
-```
+----
 
-### Zapper
+==== Zapper
 
-[http://api.zapper.fi/v1/gas-price](http://api.zapper.fi/v1/gas-price)
+http://api.zapper.fi/v1/gas-price
 
-```json
+[source,json]
+----
 {
   "standard": 113,
   "fast": 114,
   "instant": 136
 }
-```
+----
 
-### archerdao
+==== archerdao
 
-[https://api.archerdao.io/v1/gas](https://api.archerdao.io/v1/gas)
+https://api.archerdao.io/v1/gas
 
-```json
+[source,json]
+----
 {
   "code": 200,
   "data": {
@@ -964,14 +947,5 @@ Content-Type:text/plain
     "slowest": "0"
   }
 }
-```
-
-## URL Index
-
-Current offchain list:
-
-- https://gas,blocknative.com/
-- https://ethgasstation.info/json/ethgasAPI.json
-- https://www.etherchain.org/api/gasPriceOracle
-- https://gasprice.poa.network/
-- https://www.gasnow.org/api/v3/gas/price
+----
+ 
