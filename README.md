@@ -9,11 +9,29 @@
 
  <details>
  <summary> Frontmatter </summary>
-| title   	| Gas Price Reporting API Index                          	|
-|---------	|--------------------------------------------------------	|
-| summary 	| Index of all the different gas pricing API's available 	|
-| version 	| v1.1.5@2021.10.22                                      	|
-| license 	| CC-NC-2.5 / MIT for code                               	|
+ 
+<table>
+<thead>
+  <tr>
+    <th>title<br></th>
+    <th>Gas Price Reporting API Index</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>summary</td>
+    <td>Index of all the different gas pricing API's available</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td><a href="mailto:&#x76;&#49;&#x2e;&#x31;&#x2e;&#x35;&#x40;&#x32;&#x30;&#50;&#49;&#x2e;&#49;&#48;&#x2e;&#50;&#50;">v1.1.5@2021.10.22</a></td>
+  </tr>
+  <tr>
+    <td>license</td>
+    <td>CC-NC-2.5 / MIT for code</td>
+  </tr>
+</tbody>
+</table>
  
  </details>
  
