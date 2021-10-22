@@ -1,50 +1,63 @@
----
-title: Gas Price Reporting API Index
-summary: Index of all the different gas pricing API's available
-version: v1.1.4@2021.10.08
----
+<span align="center">
 
 # Gas Price Reporting Index
 
-> Collection of All Gas Price Prediction and Reporting Services and their
-> various formats
+> Collection of All Gas Price Prediction and Reporting Services and their various formats
 
+ </span>
+ 
+
+ <details>
+ <summary> Frontmatter </summary>
+| title   	| Gas Price Reporting API Index                          	|
+|---------	|--------------------------------------------------------	|
+| summary 	| Index of all the different gas pricing API's available 	|
+| version 	| v1.1.5@2021.10.22                                      	|
+| license 	| CC-NC-2.5 / MIT for code                               	|
+ 
+ </details>
+ 
 > Notice: GasNow as of 2021-10-01 will be shutting down due to SparkPools closure
 
+ 
 ## [Gas Reporting Index - TOC](https://github.com/sambacha/gas-reporting/edit/master/README.md)
 
 - [Cite This Work](#cite-this-work)
 - [Fee Speed Definitions](#fee-speed-definitions)
-  * [api.txprice.com](#apitxpricecom)
-  * [bnc-ext](#bnc-ext)
-  - [gas.blocknative.com](#Blocknative-Gas-Estimator)
-  * [WalletConnect](#walletconnect)
-  * [EtherScan](#etherscan)
-  * [GasNow [no longer in service]](#gasnow--no-longer-in-service-)
-    + [GasNow Legacy](#gasnow-legacy)
-  * [Gnosis](#gnosis)
-  * [MetaMask](#metamask)
-    + [Consensys CoDeFi](#consensys-codefi)
-    + [1inch](#1inch)
-  * [ethGasStation](#ethgasstation)
-  * [etherchain.org](#etherchainorg)
-  * [poanetwork](#poanetwork)
-  * [Zoltu](#zoltu)
-  * [MyCrypto](#mycrypto)
-  * [EtherScan](#etherscan-1)
-  * [Zapper](#zapper)
-  * [archerdao](#archerdao)
+    + [api.txprice.com](#apitxpricecom)
+    + [bnc-ext](#bnc-ext)
+      - [gas.blocknative.com](#Blocknative-Gas-Estimator)
+    + [WalletConnect](#walletconnect)
+    + [Flashbots](#flashbots)
+      - [specification](#specification)
+      - [request sample](#request-sample)
+      - [response](#response)
+    + [EtherScan](#etherscan)
+    + [GasNow [no longer in service]](#gasnow--no-longer-in-service-)
+      - [GasNow Legacy](#gasnow-legacy)
+    + [Gnosis](#gnosis)
+    + [MetaMask](#metamask)
+      - [Consensys CoDeFi](#consensys-codefi)
+      - [1inch](#1inch)
+    + [ethGasStation](#ethgasstation)
+    + [etherchain.org](#etherchainorg)
+    + [poanetwork](#poanetwork)
+    + [Zoltu](#zoltu)
+    + [MyCrypto](#mycrypto)
+    + [EtherScan](#etherscan-1)
+    + [Zapper](#zapper)
+    + [archerdao](#archerdao)
 - [URL Index](#url-index)
 
-* [URL Index](#url-index)
+
+
 
 ## Cite This Work
 
+> [see CITATION.cff](https://github.com/sambacha/gas-reporting/blob/master/CITATION.cff)
+
 ```latex
- @article{'Gas Price Reporting Index',
-          title={'Transaction Pricing and Reporting Survey for Ethereum'},
-          url={'https://github.com/sambacha/gas-reporting'},
-          author={Bacha, Sam}}
+Bacha, S. (2021). Gas Reporting Index (Version 1.1.4) [Computer software]. https://doi.org/10.5281/zenodo.1234
 ```
 ### gas.blocknative.com
 
@@ -99,6 +112,20 @@ version: v1.1.4@2021.10.08
   ]
 }
 ```
+
+```bibtex
+@software{Bacha_Gas_Reporting_Index_2021,
+author = {Bacha, Sam},
+doi = {10.5281/zenodo.1234},
+license = {Apache-2.0},
+month = {2},
+title = {{Gas Reporting Index}},
+url = {https://github.com/sambacha/gas-reporting},
+version = {1.1.4},
+year = {2021}
+}
+```
+
 
 ## Fee Speed Definitions
 
@@ -163,11 +190,13 @@ version: v1.1.4@2021.10.08
 
 ### bnc-ext
 
-> BlockNative Chrome Extenstion
+#### BlockNative Chrome Extenstion
 
 [blocknative eth gas estimate extenstion](https://chrome.google.com/webstore/detail/blocknative-eth-gas-estim/ablbagjepecncofimgjmdpnhnfjiecfm/)
 
 [https://blocknative-api.herokuapp.com/data](https://blocknative-api.herokuapp.com/data)
+
+#### sample response 
 
 ```json
 {
@@ -208,13 +237,17 @@ version: v1.1.4@2021.10.08
 
 ### WalletConnect
 
-> [https://github.com/pedrouid/ethereum-api#api](https://github.com/pedrouid/ethereum-api#api)
+#### specification 
 
-[ https://ethereum-api.xyz/gas-prices](https://ethereum-api.xyz/gas-prices)
+[https://github.com/pedrouid/ethereum-api#api](https://github.com/pedrouid/ethereum-api#api)
+
+[https://ethereum-api.xyz/gas-prices](https://ethereum-api.xyz/gas-prices)
 
 ```
 http GET https://ethereum-api.xyz/gas-prices
 ```
+
+#### sample response 
 
 ```json
 {
@@ -237,6 +270,83 @@ http GET https://ethereum-api.xyz/gas-prices
   }
 }
 ```
+
+### Flashbots
+
+> eth_gasFee
+
+#### specification
+
+[see source documentation](https://docs.flashbots.net/flashbots-protect/api/json-rpc#eth_gasfees)
+
+```jsonc
+{
+  "jsonrpc": "2.0",
+  "id": "1",
+  "result": {
+    block,                     // Number, current block number
+    baseFeePerGas,             // String, a hex number for the baseFee at the current block
+    default: {
+      maxFeePerGas,            // String, a hex number for the recommended default maxFeePerGas
+      maxPriorityFeePerGas,    // String, a hex number for the recommended default maxPriorityFeePerGas
+    },
+    low: {
+      maxFeePerGas,            // String, a hex number for the recommended low maxFeePerGas
+      maxPriorityFeePerGas,    // String, a hex number for the recommended low maxPriorityFeePerGas
+    },
+    med: {
+      maxFeePerGas,            // String, a hex number for the recommended med maxFeePerGas
+      maxPriorityFeePerGas,    // String, a hex number for the recommended med maxPriorityFeePerGas
+    },
+    high: {
+      maxFeePerGas,            // String, a hex number for the recommended high maxFeePerGas
+      maxPriorityFeePerGas,    // String, a hex number for the recommended high maxPriorityFeePerGas
+    },
+  }
+}
+```
+
+
+#### request sample
+```sh
+curl -s -L -X POST 'https://protection.flashbots.net/v1/rpc' \
+-H 'Content-Type: application/json' \
+--data-raw '{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "eth_gasFees",
+  "params": []
+}'
+```
+#### response
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "block": 13467179,
+        "baseFeePerGas": "0x0bd0606957",
+        "default": {
+            "maxFeePerGas": "0x12ec776ebc",
+            "maxPriorityFeePerGas": "0x01e47257df"
+        },
+        "low": {
+            "maxFeePerGas": "0x11d7682749",
+            "maxPriorityFeePerGas": "0xe45ecec3"
+        },
+        "med": {
+            "maxFeePerGas": "0x12ec776ebc",
+            "maxPriorityFeePerGas": "0x01e47257df"
+        },
+        "high": {
+            "maxFeePerGas": "0x1412552c31",
+            "maxPriorityFeePerGas": "0x0302bff9d4"
+        }
+    }
+}
+```
+
 
 ### EtherScan
 
