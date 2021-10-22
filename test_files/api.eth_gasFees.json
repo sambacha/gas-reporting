@@ -1,0 +1,24 @@
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "block": 13467179,
+        "baseFeePerGas": "0x0bd0606957",
+        "default": {
+            "maxFeePerGas": "0x12ec776ebc",
+            "maxPriorityFeePerGas": "0x01e47257df"
+        },
+        "low": {
+            "maxFeePerGas": "0x11d7682749",
+            "maxPriorityFeePerGas": "0xe45ecec3"
+        },
+        "med": {
+            "maxFeePerGas": "0x12ec776ebc",
+            "maxPriorityFeePerGas": "0x01e47257df"
+        },
+        "high": {
+            "maxFeePerGas": "0x1412552c31",
+            "maxPriorityFeePerGas": "0x0302bff9d4"
+        }
+    }
+}
