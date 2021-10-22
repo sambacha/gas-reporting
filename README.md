@@ -20,14 +20,13 @@
 > Notice: GasNow as of 2021-10-01 will be shutting down due to SparkPools closure
 
  
-
- 
 ## [Gas Reporting Index - TOC](https://github.com/sambacha/gas-reporting/edit/master/README.md)
 
 - [Cite This Work](#cite-this-work)
 - [Fee Speed Definitions](#fee-speed-definitions)
     + [api.txprice.com](#apitxpricecom)
     + [bnc-ext](#bnc-ext)
+      - [gas.blocknative.com](#Blocknative-Gas-Estimator)
     + [WalletConnect](#walletconnect)
     + [Flashbots](#flashbots)
       - [specification](#specification)
@@ -60,6 +59,59 @@
 ```latex
 Bacha, S. (2021). Gas Reporting Index (Version 1.1.4) [Computer software]. https://doi.org/10.5281/zenodo.1234
 ```
+### gas.blocknative.com
+
+> Note: This is powered by Blocknative's global mempool data platform
+ 
+```jsonc
+{
+  "system": "ethereum",
+  "network": "main",
+  "unit": "gwei",
+  "maxPrice": 336,
+  "currentBlockNumber": 13095949,
+  "msSinceLastBlock": 4542,
+  "blockPrices": [
+    {
+      "blockNumber": 13095950,
+      "baseFeePerGas": 113.110076547,
+      "estimatedTransactionCount": 172,
+      "estimatedPrices": [
+        {
+          "confidence": 99,
+          "price": 129,
+          "maxPriorityFeePerGas": 15.96,
+          "maxFeePerGas": 242.18
+        },
+        {
+          "confidence": 95,
+          "price": 119,
+          "maxPriorityFeePerGas": 6.84,
+          "maxFeePerGas": 233.06
+        },
+        {
+          "confidence": 90,
+          "price": 118,
+          "maxPriorityFeePerGas": 5.09,
+          "maxFeePerGas": 231.31
+        },
+        {
+          "confidence": 80,
+          "price": 116,
+          "maxPriorityFeePerGas": 3.21,
+          "maxFeePerGas": 229.43
+        },
+        {
+          "confidence": 70,
+          "price": 115,
+          "maxPriorityFeePerGas": 2.28,
+          "maxFeePerGas": 228.5
+        }
+      ]
+    }
+  ]
+}
+```
 
 ```bibtex
 @software{Bacha_Gas_Reporting_Index_2021,
@@ -84,7 +136,7 @@ year = {2021}
 
 ### api.txprice.com
 
-> Note: This is a proxy for BlockNative's Gas Pricing Service
+> Note: This is a proxy for Blocknative's Gas Pricing Service
 
 ```jsonc
 {
@@ -889,6 +941,7 @@ Content-Type:text/plain
 
 Current offchain list:
 
+- https://gas,blocknative.com/
 - https://ethgasstation.info/json/ethgasAPI.json
 - https://www.etherchain.org/api/gasPriceOracle
 - https://gasprice.poa.network/
