@@ -1,31 +1,40 @@
+---
+title: Gas Price Reporting API Index
+summary: Index of all the different gas pricing API's available
+version: v1.1.4@2021.10.08
+---
+
 # Gas Price Reporting Index
 
 > Collection of All Gas Price Prediction and Reporting Services and their
 > various formats
 
-#### Notice: GasNow will be shutting down due to SparkPools closure
+> Notice: GasNow as of 2021-10-01 will be shutting down due to SparkPools closure
 
-## [TOC]
+## [Gas Reporting Index - TOC](https://github.com/sambacha/gas-reporting/edit/master/README.md)
 
-- [gas.blocknative.com](#Blocknative-Gas-Estimator)
+- [Cite This Work](#cite-this-work)
 - [Fee Speed Definitions](#fee-speed-definitions)
-- [api.txprice.com/blocknative](#apitxpricecom)
-- [WalletConnect Ethereum-API](#WalletConnect-Ethereum-API)
-- [EtherScan.io](#etherscan)
-- [GasNow - No Longer in Service](#gasnow)
-  - [GasNow Legacy](#gasnow-legacy)
-- [Gnosis](#gnosis)
-- [MetaMask](#metamask)
-  - [Consensys CoDeFi](#consensys-codefi)
-- [1inch](#1inch)
-- [ethGasStation](#ethgasstation)
-- [etherchain.org](#etherchainorg)
-- [POA Network](#poanetwork)
-- [Zoltu](#zoltu)
-- [MyCrypto](#mycrypto)
-- [EtherScan](#etherscan)
-- [Zapper](#zapper)
-- [ArcherDAO/Eden Network](#archerdao)
+  * [api.txprice.com](#apitxpricecom)
+  * [bnc-ext](#bnc-ext)
+  - [gas.blocknative.com](#Blocknative-Gas-Estimator)
+  * [WalletConnect](#walletconnect)
+  * [EtherScan](#etherscan)
+  * [GasNow [no longer in service]](#gasnow--no-longer-in-service-)
+    + [GasNow Legacy](#gasnow-legacy)
+  * [Gnosis](#gnosis)
+  * [MetaMask](#metamask)
+    + [Consensys CoDeFi](#consensys-codefi)
+    + [1inch](#1inch)
+  * [ethGasStation](#ethgasstation)
+  * [etherchain.org](#etherchainorg)
+  * [poanetwork](#poanetwork)
+  * [Zoltu](#zoltu)
+  * [MyCrypto](#mycrypto)
+  * [EtherScan](#etherscan-1)
+  * [Zapper](#zapper)
+  * [archerdao](#archerdao)
+- [URL Index](#url-index)
 
 * [URL Index](#url-index)
 
@@ -152,7 +161,52 @@
 }
 ```
 
-### WalletConnect-Ethereum-API
+### bnc-ext
+
+> BlockNative Chrome Extenstion
+
+[blocknative eth gas estimate extenstion](https://chrome.google.com/webstore/detail/blocknative-eth-gas-estim/ablbagjepecncofimgjmdpnhnfjiecfm/)
+
+[https://blocknative-api.herokuapp.com/data](https://blocknative-api.herokuapp.com/data)
+
+```json
+{
+  "pendingBlockNumberVal": 13378149,
+  "seconds": 17,
+  "maxPrice": 768,
+  "estimatedTransactions": 279,
+  "estimatedPrices": [{
+    "confidence": 99,
+    "price": 86,
+    "maxPriorityFeePerGas": 2.96,
+    "maxFeePerGas": 170.76
+  }, {
+    "confidence": 95,
+    "price": 85,
+    "maxPriorityFeePerGas": 1.75,
+    "maxFeePerGas": 169.55
+  }, {
+    "confidence": 90,
+    "price": 85,
+    "maxPriorityFeePerGas": 1.56,
+    "maxFeePerGas": 169.36
+  }, {
+    "confidence": 80,
+    "price": 85,
+    "maxPriorityFeePerGas": 1.48,
+    "maxFeePerGas": 169.28
+  }, {
+    "confidence": 70,
+    "price": 85,
+    "maxPriorityFeePerGas": 1.37,
+    "maxFeePerGas": 169.17
+  }],
+  "baseFeePerGas": 83.897778652
+}
+```
+
+
+### WalletConnect
 
 > [https://github.com/pedrouid/ethereum-api#api](https://github.com/pedrouid/ethereum-api#api)
 
