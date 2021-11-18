@@ -67,7 +67,7 @@
     + [Gnosis](#gnosis)
     + [MetaMask](#metamask)
       - [Consensys CoDeFi](#consensys-codefi)
-      - [1inch](#1inch)
+    + [1inch](#1inch)
     + [ethGasStation](#ethgasstation)
     + [etherchain.org](#etherchainorg)
     + [poanetwork](#poanetwork)
@@ -596,9 +596,11 @@ wss://www.gasnow.org/ws
 }
 ```
 
-#### 1inch
+### 1inch
 
 [https://gas-price-api.1inch.exchange/v1.0](https://gas-price-api.1inch.exchange/v1.0)
+
+### v1.0
 
 ```http
 GET https://gas-price-api.1inch.exchange/v1.0 HTTP/1.1
@@ -620,6 +622,32 @@ Content-Type:text/plain
   "instant": 125000000000,
   "standard": 90000000000,
   "slow": 82000000000
+}
+```
+
+### v1.2
+
+> gas-price-api.1inch.io/v.1.2
+
+```json
+{
+    "baseFee": "93731028208",
+    "low": {
+        "maxPriorityFeePerGas": "1170000000",
+        "maxFeePerGas": "94901028208"
+    },
+    "medium": {
+        "maxPriorityFeePerGas": "2340000000",
+        "maxFeePerGas": "96071028208"
+    },
+    "high": {
+        "maxPriorityFeePerGas": "5850000000",
+        "maxFeePerGas": "99581028208"
+    },
+    "instant": {
+        "maxPriorityFeePerGas": "5850000000",
+        "maxFeePerGas": "129455336670"
+    }
 }
 ```
 
