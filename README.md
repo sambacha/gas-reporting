@@ -584,7 +584,8 @@ wss://www.gasnow.org/ws
     "minWaitTimeEstimate": 15000,
     "maxWaitTimeEstimate": 60000
   },
-  "estimatedBaseFee": "57.241234774"
+  "estimatedBaseFee": "57.241234774",
+   "networkCongestion": 0.5,
 }
 ```
 
