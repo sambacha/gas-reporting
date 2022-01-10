@@ -998,6 +998,14 @@ Content-Type:text/plain
 }
 ```
 
+## Appendix - MetaMask
+
+### Custom Network Over pricing 
+
+Metamask will pad the estimated gas without exceeding the most recent block `gasLimit`. However, **If the network is a a custom network it will return the `eth_estimateGas` value** 
+
+[see metamask/controllers](https://github.com/MetaMask/controllers/blob/77b1410a0611bbea785e5528b44143aebe5d407f/src/transaction/TransactionController.ts#L995)
+
 ## URL Index
 
 Current offchain list:
