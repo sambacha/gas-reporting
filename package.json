@@ -1,6 +1,6 @@
 {
   "name": "gas-reporting",
-  "version": "1.1.5",
+  "version": "1.1.10",
   "description": "gas reporting index of all available apis for ethereum pricing",
   "main": "chains.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/sambacha/gas-reporting.git"
   },
-  "keywords": [],
+  "keywords": ["ethereum", "gas pricing", "gwei", "gas station", "transaction price", "nanoeth", "eth"],
   "author": "sam bacha <sambacha@gmail.com>",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {

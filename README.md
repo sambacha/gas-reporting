@@ -76,6 +76,7 @@
     + [EtherScan](#etherscan-1)
     + [Zapper](#zapper)
     + [archerdao](#archerdao)
+    + [gas ticker](#gas-ticker)
 - [URL Index](#url-index)
 
 
@@ -994,6 +995,62 @@ Content-Type:text/plain
     "slow": "0",
     "slower": "0",
     "slowest": "0"
+  }
+}
+```
+
+### gas-ticker
+
+[Gas Ticker by ricmoo](https://github.com/ricmoo/gas-ticker)
+
+```jsonc
+{
+  "blockNumber": 14610954,
+  "timestamp": 1650309194.438,
+  "slow": {
+    "min": 29.397486945,
+    "max": 70.143180307,
+    "sum": 13465.490242759988,
+    "count": 385,
+    "mean": 34.97529933184413,
+    "median": 35,
+    "tp90": 38,
+    "stdDev": 5.992331436594249,
+    "target90": 37.265690661,
+    "targetStdDev": 2.7612260317587007,
+    "targetCount": 266,
+    "targetBest": 30,
+    "targetWorst": 39.532494062
+  },
+  "medium": {
+    "min": 29.397486945,
+    "max": 62.428616398,
+    "sum": 29594.27666106807,
+    "count": 680,
+    "mean": 43.520995089805986,
+    "median": 39.038827568,
+    "tp90": 52.433561707,
+    "stdDev": 8.816041449214934,
+    "target90": 50,
+    "targetStdDev": 4.467921632212077,
+    "targetCount": 470,
+    "targetBest": 34.911631032,
+    "targetWorst": 52.3082
+  },
+  "fast": {
+    "min": 29.397486945,
+    "max": 1200.988196226,
+    "sum": 753432.9418861985,
+    "count": 14637,
+    "mean": 51.47454682559257,
+    "median": 48.554602972,
+    "tp90": 59.570121624,
+    "stdDev": 24.12932660961557,
+    "target90": 60.216413805,
+    "targetStdDev": 6.10997036680254,
+    "targetCount": 10100,
+    "targetBest": 38.822145579,
+    "targetWorst": 64.139501286
   }
 }
 ```
