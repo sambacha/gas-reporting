@@ -3,12 +3,12 @@
 # Gas Price Reporting Index
 
 > Collection of All Gas Price Prediction and Reporting Services and their various formats
- 
- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5702504.svg)](https://doi.org/10.5281/zenodo.5702504)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5702504.svg)](https://doi.org/10.5281/zenodo.5702504)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/sambacha/gas-reporting)
 
  </span>
- 
+
 
  <details>
  <summary> Frontmatter </summary>
@@ -40,52 +40,50 @@
  
 > Notice: GasNow as of 2021-10-01 will be shutting down due to SparkPools closure
 
- 
 ## [Gas Reporting Index](https://github.com/sambacha/gas-reporting/edit/master/README.md)
 
 - [Cite This Work](#cite-this-work)
 - [Gas Reporting Table](#foundry-table)
 - [Fee Speed Definitions](#fee-speed-definitions)
 - [Gas Price Reporting Index](#gas-price-reporting-index)
-  * [Cite This Work](#cite-this-work)
-  * [Fee Speed Definitions](#fee-speed-definitions)
-    + [api.txprice.com](#apitxpricecom)
-    + [Blocknative](#blocknative)
+  - [Cite This Work](#cite-this-work)
+  - [Fee Speed Definitions](#fee-speed-definitions)
+    - [api.txprice.com](#apitxpricecom)
+    - [Blocknative](#blocknative)
       - [gas.blocknative.com](#gasblocknativecom)
       - [bnc-ext](#bnc-ext)
       - [BlockNative Chrome Extenstion](#blocknative-chrome-extenstion)
       - [sample response](#sample-response)
-    + [WalletConnect](#walletconnect)
+    - [WalletConnect](#walletconnect)
       - [specification](#specification)
       - [sample response](#sample-response-1)
-    + [Flashbots](#flashbots)
+    - [Flashbots](#flashbots)
       - [specification](#specification-1)
       - [request sample](#request-sample)
       - [response](#response)
-    + [EtherScan](#etherscan)
-    + [GasNow [no longer in service]](#gasnow--no-longer-in-service-)
+    - [EtherScan](#etherscan)
+    - [GasNow [no longer in service]](#gasnow--no-longer-in-service-)
       - [GasNow Legacy](#gasnow-legacy)
-    + [Gnosis](#gnosis)
-    + [MetaMask](#metamask)
+    - [Gnosis](#gnosis)
+    - [MetaMask](#metamask)
       - [Consensys CoDeFi](#consensys-codefi)
-    + [1inch](#1inch)
-    + [ethGasStation](#ethgasstation)
-    + [etherchain.org](#etherchainorg)
-    + [poanetwork](#poanetwork)
-    + [Zoltu](#zoltu)
-    + [MyCrypto](#mycrypto)
-    + [EtherScan](#etherscan-1)
-    + [Zapper](#zapper)
-    + [archerdao](#archerdao)
-    + [gas ticker](#gas-ticker)
+    - [1inch](#1inch)
+    - [ethGasStation](#ethgasstation)
+    - [etherchain.org](#etherchainorg)
+    - [poanetwork](#poanetwork)
+    - [Zoltu](#zoltu)
+    - [MyCrypto](#mycrypto)
+    - [EtherScan](#etherscan-1)
+    - [Zapper](#zapper)
+    - [archerdao](#archerdao)
+    - [gas ticker](#gas-ticker)
 - [URL Index](#url-index)
-
 
 ## Cite This Work
 
 > [see CITATION.cff](https://github.com/sambacha/gas-reporting/blob/master/CITATION.cff)
 
-```latex
+```
 Bacha, S. (2021). Gas Reporting Index (Version 1.1.5) [Computer software]. https://doi.org/10.5281/zenodo.1234
 ```
 
@@ -106,12 +104,12 @@ year = {2021}
 
 > Gas Reporting from `forge --gas-report`
 
-| **CONTRACT_NAME:string** 	|  	|  	|  	|  	|  	|
-|---	|---	|---	|---	|---	|---	|
-| **Deployment Cost** 	| **Deployment Size** 	|  	|  	|  	|  	|
-| type:number 	| type:number 	|  	|  	|  	|  	|
-| **Function Name** 	| **min** 	| **avg** 	| **median** 	| **max** 	| **# calls** 	|
-| type:string 	| type:number 	| type:number 	| type:number 	| type:number 	| type:number 	|
+| **CONTRACT_NAME:string** |                     |             |             |             |             |
+| ------------------------ | ------------------- | ----------- | ----------- | ----------- | ----------- |
+| **Deployment Cost**      | **Deployment Size** |             |             |             |             |
+| type:number              | type:number         |             |             |             |             |
+| **Function Name**        | **min**             | **avg**     | **median**  | **max**     | **# calls** |
+| type:string              | type:number         | type:number | type:number | type:number | type:number |
 
 ```
 ╭──────────────────────────┬─────────────────┬───────┬────────┬───────┬─────────╮
@@ -138,7 +136,7 @@ year = {2021}
 
 > Note: This is a proxy for Blocknative's Gas Pricing Service
 
-```jsonc
+```json
 {
   "system": "ethereum",
   "network": "main",
@@ -190,13 +188,13 @@ year = {2021}
 
 ### Blocknative
 
-> @note there are two seperate entries 
+> @note there are two seperate entries
 
 #### gas.blocknative.com
 
 > Note: This is powered by Blocknative's global mempool data platform
- 
-```jsonc
+
+```json
 {
   "system": "ethereum",
   "network": "main",
@@ -254,7 +252,7 @@ year = {2021}
 
 [https://blocknative-api.herokuapp.com/data](https://blocknative-api.herokuapp.com/data)
 
-#### sample response 
+#### sample response
 
 ```json
 {
@@ -292,10 +290,9 @@ year = {2021}
 }
 ```
 
-
 ### WalletConnect
 
-#### specification 
+#### specification
 
 [https://github.com/pedrouid/ethereum-api#api](https://github.com/pedrouid/ethereum-api#api)
 
@@ -305,7 +302,7 @@ year = {2021}
 http GET https://ethereum-api.xyz/gas-prices
 ```
 
-#### sample response 
+#### sample response
 
 ```json
 {
@@ -337,6 +334,8 @@ http GET https://ethereum-api.xyz/gas-prices
 
 [see source documentation](https://docs.flashbots.net/flashbots-protect/api/json-rpc#eth_gasfees)
 
+// prettier-ignore
+
 ```jsonc
 {
   "jsonrpc": "2.0",
@@ -364,8 +363,8 @@ http GET https://ethereum-api.xyz/gas-prices
 }
 ```
 
-
 #### request sample
+
 ```sh
 curl -s -L -X POST 'https://protection.flashbots.net/v1/rpc' \
 -H 'Content-Type: application/json' \
@@ -376,6 +375,7 @@ curl -s -L -X POST 'https://protection.flashbots.net/v1/rpc' \
   "params": []
 }'
 ```
+
 #### response
 
 ```json
@@ -404,7 +404,6 @@ curl -s -L -X POST 'https://protection.flashbots.net/v1/rpc' \
     }
 }
 ```
-
 
 ### EtherScan
 
@@ -1082,9 +1081,10 @@ Content-Type:text/plain
 
 ## Appendix - MetaMask
 
-### Custom Network Over pricing 
+### Custom Network Over pricing
 
-Metamask will pad the estimated gas without exceeding the most recent block `gasLimit`. However, **If the network is a a custom network it will return the `eth_estimateGas` value** 
+Metamask will pad the estimated gas without exceeding the most recent block `gasLimit`. However, **If the
+network is a a custom network it will return the `eth_estimateGas` value**
 
 [see metamask/controllers](https://github.com/MetaMask/controllers/blob/77b1410a0611bbea785e5528b44143aebe5d407f/src/transaction/TransactionController.ts#L995)
 

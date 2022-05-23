@@ -1,0 +1,36 @@
+'use strict';
+
+module.exports = {
+  arrowParens: 'always',
+  bracketSpacing: true,
+  endOfLine: 'lf',
+  printWidth: 80,
+  singleQuote: true,
+  tabWidth: 2,
+  trailingComma: 'all',
+  quoteProps: 'as-needed',
+  semi: true,
+  overrides: [{
+    files: '*.md',
+    options: {
+      arrowParens: always,
+      bracketSameLine: true,
+      bracketSpacing: true,
+      embeddedLanguageFormatting: off,
+      htmlWhitespaceSensitivity: strict,
+      insertPragma: false,
+      jsxSingleQuote: false,
+      printWidth: 110,
+      proseWrap: always,
+      quoteProps: as - needed,
+      requirePragma: false,
+      semi: true,
+      singleQuote: false,
+      tabWidth: 2,
+      trailingComma: all,
+      useTabs: true,
+      vueIndentScriptAndStyle: false,
+    },
+  }, 
+ ],
+};
