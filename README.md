@@ -41,9 +41,10 @@
 > Notice: GasNow as of 2021-10-01 will be shutting down due to SparkPools closure
 
  
-## [Gas Reporting Index - TOC](https://github.com/sambacha/gas-reporting/edit/master/README.md)
+## [Gas Reporting Index](https://github.com/sambacha/gas-reporting/edit/master/README.md)
 
 - [Cite This Work](#cite-this-work)
+- [Gas Reporting Table](#foundry-table)
 - [Fee Speed Definitions](#fee-speed-definitions)
 - [Gas Price Reporting Index](#gas-price-reporting-index)
   * [Cite This Work](#cite-this-work)
@@ -101,6 +102,30 @@ year = {2021}
 }
 ```
 
+## Foundry Table
+
+> Gas Reporting from `forge --gas-report`
+
+| **CONTRACT_NAME:string** 	|  	|  	|  	|  	|  	|
+|---	|---	|---	|---	|---	|---	|
+| **Deployment Cost** 	| **Deployment Size** 	|  	|  	|  	|  	|
+| type:number 	| type:number 	|  	|  	|  	|  	|
+| **Function Name** 	| **min** 	| **avg** 	| **median** 	| **max** 	| **# calls** 	|
+| type:string 	| type:number 	| type:number 	| type:number 	| type:number 	| type:number 	|
+
+```
+╭──────────────────────────┬─────────────────┬───────┬────────┬───────┬─────────╮
+│ GasMeterFactory contract ┆                 ┆       ┆        ┆       ┆         │
+╞══════════════════════════╪═════════════════╪═══════╪════════╪═══════╪═════════╡
+│ Deployment Cost          ┆ Deployment Size ┆       ┆        ┆       ┆         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤
+│ 35287                    ┆ 206             ┆       ┆        ┆       ┆         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤
+│ Function Name            ┆ min             ┆ avg   ┆ median ┆ max   ┆ # calls │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤
+│ build                    ┆ 38653           ┆ 38653 ┆ 38653  ┆ 38653 ┆ 15      │
+╰──────────────────────────┴─────────────────┴───────┴────────┴───────┴─────────╯
+```
 
 ## Fee Speed Definitions
 
