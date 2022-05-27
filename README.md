@@ -628,20 +628,6 @@ wss://www.gasnow.org/ws
 
 ### v1.0
 
-```http
-GET https://gas-price-api.1inch.exchange/v1.0 HTTP/1.1
-Host:gas-price-api.1inch.exchange
-User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:87.0) Gecko/20100101 Firefox/87.0
-Accept:application/json, text/plain, */*
-Accept-Language:en-US,en;q=0.5
-Accept-Encoding:gzip, deflate, br
-Referer:https://1inch.exchange/
-Origin:https://1inch.exchange
-Connection:keep-alive
-If-None-Match:W/"55-14kgjK/la5g2ZUcb/96cMvcDlDQ"
-Content-Type:text/plain
-```
-
 ```json
 {
   "fast": 96820000000,
@@ -868,6 +854,10 @@ Content-Type:text/plain
 ### etherchain.org
 
 [endpoint url](https://www.etherchain.org/api/gasPriceOracle)
+
+```json
+{"safeLow":1,"standard":1,"fast":1.5,"fastest":2,"currentBaseFee":72.5,"recommendedBaseFee":147.2}
+```
 
 ```json
 { "safeLow": 102, "standard": 105, "fast": 114.6, "fastest": 120 }
