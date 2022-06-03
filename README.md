@@ -863,6 +863,80 @@ wss://www.gasnow.org/ws
 { "safeLow": 102, "standard": 105, "fast": 114.6, "fastest": 120 }
 ```
 
+### etherchain-gasnow
+
+[https://etherchain.org/api/gasnow](https://etherchain.org/api/gasnow)
+
+```js
+{code: 200, data: {rapid: 60000000000, fast: 39962373278, standard: 24406984375, slow: 19550000000,…}}
+```
+```javascript
+code: 200
+data: {rapid: 60000000000, fast: 39962373278, standard: 24406984375, slow: 19550000000,…}
+fast: 39962373278
+priceUSD: 1818.52
+rapid: 60000000000
+slow: 19550000000
+standard: 24406984375
+timestamp: 1654245505826
+```
+> Response 
+
+```json
+{"code":200,"data":{"rapid":65265049007,"fast":49988581398,"standard":23000000000,"slow":19550000000,"timestamp":1654245243247,"priceUSD":1818.52}}
+```
+
+
+> Schema 
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "etherchain_gasnow",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "rapid": {
+          "type": "integer"
+        },
+        "fast": {
+          "type": "integer"
+        },
+        "standard": {
+          "type": "integer"
+        },
+        "slow": {
+          "type": "integer"
+        },
+        "timestamp": {
+          "type": "integer"
+        },
+        "priceUSD": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "rapid",
+        "fast",
+        "standard",
+        "slow",
+        "timestamp",
+        "priceUSD"
+      ]
+    }
+  },
+  "required": [
+    "code",
+    "data"
+  ]
+}
+```
+
 ### poanetwork
 
 [endpoint url](https://gasprice.poa.network/)
