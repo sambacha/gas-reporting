@@ -27,7 +27,7 @@
   </tr>
   <tr>
     <td>version</td>
-    <td><a href="mailto:&#x76;&#49;&#x2e;&#x31;&#x2e;&#x35;&#x40;&#x32;&#x30;&#50;&#49;&#x2e;&#49;&#48;&#x2e;&#50;&#50;">v1.1.5@2021.10.22</a></td>
+    <td><a href="mailto:&#x76;&#49;&#x2e;&#x31;&#x2e;&#x35;&#x40;&#x32;&#x30;&#50;&#49;&#x2e;&#49;&#48;&#x2e;&#50;&#50;">v1.1.11@2022.6.02</a></td>
   </tr>
   <tr>
     <td>license</td>
@@ -41,6 +41,13 @@
 > Notice: GasNow as of 2021-10-01 will be shutting down due to SparkPools closure
 
 ## [Gas Reporting Index](https://github.com/sambacha/gas-reporting/edit/master/README.md)
+
+### Developer-focused Sections
+- [Foundry Table](#foundry-table)
+- [EVM Parameter Pricing](#evm-params)
+- [Fee Speed Definitions](#fee-speed-definitions)
+
+### TOC
 
 - [Cite This Work](#cite-this-work)
 - [Gas Reporting Table](#foundry-table)
@@ -68,40 +75,40 @@
   * [MetaMask](#metamask)
     + [Consensys CoDeFi](#consensys-codefi)
   * [1inch](#1inch)
-  * [v1.0](#v10)
-  * [v1.2](#v12)
+     + [v1.0](#v10)
+     + [v1.2](#v12)
   * [ethGasStation](#ethgasstation)
   * [etherchain.org](#etherchainorg)
-  * [etherchain-gasnow](#etherchain-gasnow)
+     + [etherchain-gasnow](#etherchain-gasnow)
   * [poanetwork](#poanetwork)
   * [Zoltu](#zoltu)
   * [MyCrypto](#mycrypto)
   * [EtherScan](#etherscan-1)
   * [Zapper](#zapper)
-  * [archerdao](#archerdao)
+  * [Eden Network fka. ArcherDAO](#archerdao)
   * [gas-ticker](#gas-ticker)
-- [Appendix - MetaMask](#appendix---metamask)
+- [Appendix](#appendix)
   * [Custom Network Over pricing](#custom-network-over-pricing)
-- [URL Index](#url-index)
+  * [URL Index](#url-index)
+  * [EVM Parameter Pricing](#evm-params)
 
 ## Cite This Work
 
 > [see CITATION.cff](https://github.com/sambacha/gas-reporting/blob/master/CITATION.cff)
 
 ```
-Bacha, S. (2021). Gas Reporting Index (Version 1.1.5) [Computer software]. https://doi.org/10.5281/zenodo.1234
+Bacha, S. (2021, 2022). EVM Gas Reporting Index: Catalog of Transaction Pricing Services and their implementation differences (Version 1.1.12) [Computer software]. https://doi.org/10.5281/zenodo.1234
 ```
 
 ```bibtex
-@software{Bacha_Gas_Reporting_Index_2021,
+@software{Bacha_Gas_Reporting_Index_2022,
 author = {Bacha, Sam},
-ipfs = {$CID},
 license = {CC-2.5-NC/MIT},
-month = {10},
+month = {6},
 title = {{Gas Reporting Index}},
 url = {https://github.com/sambacha/gas-reporting},
-version = {1.1.5},
-year = {2021}
+version = {1.1.12},
+year = {2021-2022}
 }
 ```
 
@@ -1149,7 +1156,7 @@ timestamp: 1654245505826
 }
 ```
 
-## Appendix - MetaMask
+## Appendix
 
 ### Custom Network Over pricing
 
@@ -1158,7 +1165,7 @@ network is a a custom network it will return the `eth_estimateGas` value**
 
 [see metamask/controllers](https://github.com/MetaMask/controllers/blob/77b1410a0611bbea785e5528b44143aebe5d407f/src/transaction/TransactionController.ts#L995)
 
-## URL Index
+### URL Index
 
 Current offchain list:
 
@@ -1167,3 +1174,75 @@ Current offchain list:
 - https://www.etherchain.org/api/gasPriceOracle
 - https://gasprice.poa.network/
 - https://www.gasnow.org/api/v3/gas/price
+
+### EVM Params
+
+| Key | Value | Description |
+|---|---|---|
+| JumpdestGas uint64 | 1 | Once per JUMPDEST operation. |
+| EpochDuration uint64 | 30000 | Duration between proof-of-work epochs. |
+| CreateDataGas uint64 | 200 |  |
+| CallCreateDepth uint64 | 1024 | Maximum depth of call/create stack. |
+| ExpGas uint64 | 10 | Once per EXP instruction |
+| LogGas uint64 | 375 | Per LOG* operation. |
+| CopyGas uint64 | 3 |  |
+| StackLimit uint64 | 1024 | Maximum size of VM stack allowed. |
+| TierStepGas uint64 | 0 | Once per operation, for a selection of them. |
+| LogTopicGas uint64 | 375 | Multiplied by the * of the LOG*, per LOG transaction. e.g. LOG0 incurs 0 * c_txLogTopicGas, LOG4 incurs 4 * c_txLogTopicGas. |
+| CreateGas uint64 | 32000 | Once per CREATE operation & contract-creation transaction. |
+| Create2Gas uint64 | 32000 | Once per CREATE2 operation |
+| SelfdestructRefundGas uint64 | 24000 | Refunded following a selfdestruct operation. |
+| MemoryGas uint64 | 3 | Times the address of the (highest referenced byte in memory + 1). NOTE: referencing happens on read, write and in instructions such as RETURN and CALL. |
+| TxDataNonZeroGasFrontier uint64 | 68 | Per byte of data attached to a transaction that is not equal to zero. NOTE: Not payable on data of calls between transactions. |
+| TxDataNonZeroGasEIP2028 uint64 | 16 | Per byte of non zero data attached to a transaction after EIP 2028 (part in Istanbul) |
+| TxAccessListAddressGas uint64 | 2400 | Per address specified in EIP 2930 access list |
+| TxAccessListStorageKeyGas uint64 | 1900 | Per storage key specified in EIP 2930 access list |
+| CallGasFrontier uint64 | 40 | Once per CALL operation & message call transaction. |
+| CallGasEIP150 uint64 | 700 | Static portion of gas for CALL-derivates after EIP 150 (Tangerine) |
+| BalanceGasFrontier uint64 | 20 | The cost of a BALANCE operation |
+| BalanceGasEIP150 uint64 | 400 | The cost of a BALANCE operation after Tangerine |
+| BalanceGasEIP1884 uint64 | 700 | The cost of a BALANCE operation after EIP 1884 (part of Istanbul) |
+| ExtcodeSizeGasFrontier uint64 | 20 | Cost of EXTCODESIZE before EIP 150 (Tangerine) |
+| ExtcodeSizeGasEIP150 uint64 | 700 | Cost of EXTCODESIZE after EIP 150 (Tangerine) |
+| SloadGasFrontier uint64 | 50 |  |
+| SloadGasEIP150 uint64 | 200 |  |
+| SloadGasEIP1884 uint64 | 800 | Cost of SLOAD after EIP 1884 (part of Istanbul) |
+| SloadGasEIP2200 uint64 | 800 | Cost of SLOAD after EIP 2200 (part of Istanbul) |
+| ExtcodeHashGasConstantinople uint64 | 400 | Cost of EXTCODEHASH (introduced in Constantinople) |
+| ExtcodeHashGasEIP1884 uint64 | 700 | Cost of EXTCODEHASH after EIP 1884 (part in Istanbul) |
+| SelfdestructGasEIP150 uint64 | 5000 | Cost of SELFDESTRUCT post EIP 150 (Tangerine) |
+| GasLimitBoundDivisor uint64 | 1024 | The bound divisor of the gas limit, used in update calculations. |
+| MinGasLimit uint64 | 5000 | Minimum the gas limit may ever be. |
+| MaxGasLimit uint64 | 0x7fffffffffffffff | Maximum the gas limit (2^63-1). |
+| GenesisGasLimit uint64 | 4712388 | Gas limit of the Genesis block. |
+| MaximumExtraDataSize uint64 | 32 | Maximum size extra data may be after Genesis. |
+| ExpByteGas uint64 | 10 | Times ceil(log256(exponent)) for the EXP instruction. |
+| SloadGas uint64 | 50 | Multiplied by the number of 32-byte words that are copied (round up) for any *COPY operation and added. |
+| CallValueTransferGas uint64 | 9000 | Paid for CALL when the value transfer is non-zero. |
+| CallNewAccountGas uint64 | 25000 | Paid for CALL when the destination address didn't exist prior. |
+| TxGas uint64 | 21000 | Per transaction not creating a contract. NOTE: Not payable on data of calls between transactions. |
+| TxGasContractCreation uint64 | 53000 | Per transaction that creates a contract. NOTE: Not payable on data of calls between transactions. |
+| TxDataZeroGas uint64 | 4 | Per byte of data attached to a transaction that equals zero. NOTE: Not payable on data of calls between transactions. |
+| QuadCoeffDiv uint64 | 512 | Divisor for the quadratic particle of the memory cost equation. |
+| LogDataGas uint64 | 8 | Per byte in a LOG* operation's data. |
+| CallStipend uint64 | 2300 | Free gas given at beginning of call. |
+| Keccak256Gas uint64 | 30 | Once per KECCAK256 operation. |
+| Keccak256WordGas uint64 | 6 | Once per word of the KECCAK256 operation's data. |
+| SstoreSetGas uint64 | 20000 | Once per SSTORE operation. |
+| SstoreResetGas uint64 | 5000 | Once per SSTORE operation if the zeroness changes from zero. |
+| SstoreClearGas uint64 | 5000 | Once per SSTORE operation if the zeroness doesn't change. |
+| SstoreRefundGas uint64 | 15000 | Once per SSTORE operation if the zeroness changes to zero. |
+| NetSstoreNoopGas uint64 | 200 | Once per SSTORE operation if the value doesn't change. |
+| NetSstoreInitGas uint64 | 20000 | Once per SSTORE operation from clean zero. |
+| NetSstoreCleanGas uint64 | 5000 | Once per SSTORE operation from clean non-zero. |
+| NetSstoreDirtyGas uint64 | 200 | Once per SSTORE operation from dirty. |
+| NetSstoreClearRefund uint64 | 15000 | Once per SSTORE operation for clearing an originally existing storage slot |
+| NetSstoreResetRefund uint64 | 4800 | Once per SSTORE operation for resetting to the original non-zero value |
+| NetSstoreResetClearRefund uint64 | 19800 | Once per SSTORE operation for resetting to the original zero value |
+| SstoreSentryGasEIP2200 uint64 | 2300 | Minimum gas required to be present for an SSTORE call, not consumed |
+| SstoreSetGasEIP2200 uint64 | 20000 | Once per SSTORE operation from clean zero to non-zero |
+| SstoreResetGasEIP2200 uint64 | 5000 | Once per SSTORE operation from clean non-zero to something else |
+| SstoreClearsScheduleRefundEIP2200 uint64 | 15000 | Once per SSTORE operation for clearing an originally existing storage slot |
+| ColdAccountAccessCostEIP2929 | uint64(2600) | COLD_ACCOUNT_ACCESS_COST |
+| ColdSloadCostEIP2929 | uint64(2100) | COLD_SLOAD_COST |
+| WarmStorageReadCostEIP2929 | uint64(100) | WARM_STORAGE_READ_COST |
