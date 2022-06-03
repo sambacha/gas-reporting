@@ -870,6 +870,7 @@ wss://www.gasnow.org/ws
 ```js
 {code: 200, data: {rapid: 60000000000, fast: 39962373278, standard: 24406984375, slow: 19550000000,…}}
 ```
+
 ```javascript
 code: 200
 data: {rapid: 60000000000, fast: 39962373278, standard: 24406984375, slow: 19550000000,…}
@@ -880,14 +881,14 @@ slow: 19550000000
 standard: 24406984375
 timestamp: 1654245505826
 ```
-> Response 
+
+> Response
 
 ```json
 {"code":200,"data":{"rapid":65265049007,"fast":49988581398,"standard":23000000000,"slow":19550000000,"timestamp":1654245243247,"priceUSD":1818.52}}
 ```
 
-
-> Schema 
+> Schema
 
 ```json
 {
