@@ -1,0 +1,8 @@
+{
+  "name": "Gas price",
+  "schema": {
+    "title": "Gas price",
+    "type": "string",
+    "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$"
+  }
+}
