@@ -4,8 +4,10 @@
 
 > Collection of All Gas Price Prediction and Reporting Services and their various formats
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6548453.svg)](https://doi.org/10.5281/zenodo.6548453) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/sambacha/gas-reporting)
+
+Previous Releases: <br />
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5702504.svg)](https://doi.org/10.5281/zenodo.5702504)
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/sambacha/gas-reporting)
 
  </span>
 
