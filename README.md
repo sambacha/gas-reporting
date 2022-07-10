@@ -114,6 +114,90 @@ year = {2021-2022}
 }
 ```
 
+## Preface
+
+This section is bein reworked to added relevant EIP's in addition to the normally provided reference of API methods.
+
+## EIP-2930: Optional Access List transactions
+
+> [source, @fvictorio/gas-costs-after-berlin#EIP-2930-Optional-Access-List-transactions](https://hackmd.io/@fvictorio/gas-costs-after-berlin#EIP-2930-Optional-Access-List-transactions)
+
+This EIP adds a new type of transaction that can include an access list in the transaction payload. This means that you can declare beforehand which addresses and slots should be considered as accessed before the transaction’s execution starts. For example, an SLOAD of a non-accessed slot costs 2100, but if that slot was included in the transaction’s access list, then that same opcode will cost 100.
+
+But if the gas costs are lower when an address or storage key is already accessed, does this mean that we can add everything to the transaction’s access list and get a gas reduction? Yay, free gas! Well, not exactly, because you also need to pay gas for each address and each storage key that you add.
+
+Let’s see an example. Say we are sending a transaction to contract A. An access list could look like this:
+
+```javascript
+accessList: [{
+  address: "<address of A>",
+  storageKeys: [
+    "0x0000000000000000000000000000000000000000000000000000000000000000"
+  ]
+}]
+```
+If we send a transaction with this access list, and the first opcode that uses the 0x0 slot is a SLOAD, it will cost 100 instead of 2100. That’s a gas reduction of 2000. But each storage key included in the transaction’s access list has a cost of 1900. So we only save 100 of gas. (If the first opcode to access that slot is an SSTORE instead, we would save 2100 of gas, which means that we’d save 200 of gas in total if we consider the cost of the storage key.)
+
+> You always pay gas for the address in the access list ("<address of A>" in the example).
+
+### Accessed addresses
+
+So far, we’ve been talking only about the `SLOAD` and `SSTORE` opcodes, but those aren’t the only ones that change after Berlin. For example, the CALL opcode had a fixed cost of 700. But after `EIP-2929` its cost is 2600 if the address is not in the access list and 100 if it is. And, like the accessed storage keys, it doesn’t matter what OPCODE accessed that address before (for example, if an `EXTCODESIZE` was called first, then that opcode will cost 2600, and any subsequent `EXTCODESIZE`, `CALL`, `STATICCAL`L that uses the same address will cost 100).
+
+How is this affected by transactions with access lists? For example, if we send a transaction to contract A, and that contract calls another contract B, then we can include an access list like this:
+
+```javascript
+accessList: [{ address: "<address of B>", storageKeys: [] }]
+```
+We’ll have to pay a cost of 2400 to include this access list in the transaction, but then the first opcode that uses the address of B will cost 100 instead of 2600. So we saved 100 of gas by doing this. And if B uses its storage somehow and we know which keys it will use, then we can also include them in the access list and save 100/200 of gas for each one (depending on whether the first opcode is an SLOAD or an SSTORE).
+
+But why are we talking about another contract? What happens with the contract that we are calling? Why don’t we do this?
+
+```javascript
+accessList: [
+  {address: "<address of A>", storageKeys: []},
+  {address: "<address of B>", storageKeys: []},
+]
+```
+We could do it, but it wouldn’t be worth it because EIP-2929 specifies that the address of the contract that is being called (that is, tx.to) is always included in the accessed_addresses list. So we are paying 2400 more for nothing.
+
+Let’s analyze our example of the previous section again:
+
+```javascript
+accessList: [{
+  address: "<address of A>",
+  storageKeys: [
+    "0x0000000000000000000000000000000000000000000000000000000000000000"
+  ]
+}]
+```
+This will actually be wasteful unless we include several storage keys more. If we assume that a storage key is always used first by an SLOAD, then we need at least 24 storage keys just to break even.
+
+As you can imagine, analyzing this and creating an access list by hand is not fun. Luckily, there is a better way.
+
+### `eth_createAccessList`
+Geth (starting from version 1.10.2) includes a new eth_createAccessList RPC method that you can use to generate access lists. It is used like eth_estimateGas, but instead of a gas estimation, it returns something like this:
+
+```jsonc
+{
+  "accessList": [
+    {
+      "address": "0xb0ee076d7779a6ce152283f009f4c32b5f88756c",
+      "storageKeys": [
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000001"
+      ]
+    }
+  ],
+  "gasUsed": "0x8496"
+}
+```
+That is, it gives you the list of addresses and storage keys that will be used by that transaction, plus the gas consumed if the access list is included. (And, like eth_estimateGas, this is an estimation; the list could change when the transaction is actually mined.) But, again, this doesn’t mean that this gas will be lower than the gas used if you just send the same transaction without an access list!
+
+### Conclusion
+
+Does this mean that we always save gas when using transaction’s with access lists? No
+
 ## Foundry Table
 
 > Gas Reporting from `forge --gas-report`
