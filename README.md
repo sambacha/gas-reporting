@@ -292,6 +292,102 @@ Does this mean that we always save gas when using transaction’s with access li
 
 > Note: This is powered by Blocknative's global mempool data platform
 
+> v2 Blocknative
+
+```jsonc
+{
+    "system": "ethereum",
+    "network": "main",
+    "unit": "gwei",
+    "maxPrice": 50,
+    "currentBlockNumber": 15326495,
+    "msSinceLastBlock": 40251,
+    "blockPrices": [
+        {
+            "blockNumber": 15326496,
+            "estimatedTransactionCount": 322,
+            "baseFeePerGas": 11.075381056,
+            "estimatedPrices": [
+                {
+                    "confidence": 99,
+                    "price": 13,
+                    "maxPriorityFeePerGas": 2.49,
+                    "maxFeePerGas": 22.45
+                },
+                {
+                    "confidence": 95,
+                    "price": 13,
+                    "maxPriorityFeePerGas": 2.13,
+                    "maxFeePerGas": 22.09
+                },
+                {
+                    "confidence": 90,
+                    "price": 12,
+                    "maxPriorityFeePerGas": 1.92,
+                    "maxFeePerGas": 21.88
+                },
+                {
+                    "confidence": 80,
+                    "price": 12,
+                    "maxPriorityFeePerGas": 1.68,
+                    "maxFeePerGas": 21.64
+                },
+                {
+                    "confidence": 70,
+                    "price": 12,
+                    "maxPriorityFeePerGas": 1.58,
+                    "maxFeePerGas": 21.54
+                }
+            ]
+        }
+    ],
+    "estimatedBaseFees": [
+        {
+            "pending+1": [
+                {
+                    "confidence": 99,
+                    "baseFee": 12.46
+                }
+            ]
+        },
+        {
+            "pending+2": [
+                {
+                    "confidence": 99,
+                    "baseFee": 14.02
+                }
+            ]
+        },
+        {
+            "pending+3": [
+                {
+                    "confidence": 99,
+                    "baseFee": 15.77
+                }
+            ]
+        },
+        {
+            "pending+4": [
+                {
+                    "confidence": 99,
+                    "baseFee": 17.75
+                }
+            ]
+        },
+        {
+            "pending+5": [
+                {
+                    "confidence": 99,
+                    "baseFee": 19.96
+                }
+            ]
+        }
+    ]
+}
+```
+
+> v1 Blocknative 
+
 ```json
 {
   "system": "ethereum",
