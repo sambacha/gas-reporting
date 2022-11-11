@@ -29,7 +29,7 @@ Previous Releases: <br />
   </tr>
   <tr>
     <td>version</td>
-    <td><a href="mailto:&#x76;&#49;&#x2e;&#x31;&#x2e;&#x35;&#x40;&#x32;&#x30;&#50;&#49;&#x2e;&#49;&#48;&#x2e;&#50;&#50;">v1.1.11@2022.6.02</a></td>
+    <td><a href="mailto:&#x76;&#49;&#x2e;&#x31;&#x2e;&#x35;&#x40;&#x32;&#x30;&#50;&#49;&#x2e;&#49;&#48;&#x2e;&#50;&#50;">v1.1.12@2022.11.11</a></td>
   </tr>
   <tr>
     <td>license</td>
@@ -63,6 +63,8 @@ Previous Releases: <br />
     + [bnc-ext](#bnc-ext)
     + [BlockNative Chrome Extenstion](#blocknative-chrome-extenstion)
     + [sample response](#sample-response)
+  * [Curve Finance](#curve-finance)
+    + [getGas](#getGas)
   * [WalletConnect](#walletconnect)
     + [specification](#specification)
     + [sample response](#sample-response-1)
@@ -483,6 +485,47 @@ Does this mean that we always save gas when using transaction’s with access li
   "baseFeePerGas": 83.897778652
 }
 ```
+ 
+### Curve-Finance
+ 
+#### `getGas`
+ 
+[https://api.curve.fi/api/getGas](https://api.curve.fi/api/getGas)
+ 
+
+```bash
+ https://api.curve.fi/api/getGas
+```
+ 
+```json
+{
+    "success": true,
+    "data": {
+        "gas": {
+            "rapid": 36000000000,
+            "fast": 35000000000,
+            "standard": 35000000000,
+            "slow": 35000000000
+        },
+        "eip1559Gas": {
+            "base": 35292604977,
+            "prio": [
+                1220000000,
+                500000000,
+                350000000,
+                230000000
+            ],
+            "max": [
+                56110000000,
+                55390000000,
+                55240000000,
+                55120000000
+            ]
+        }
+    },
+    "generatedTimeMs": 1668181797396
+}
+``` 
 
 ### WalletConnect
 
