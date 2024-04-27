@@ -1,40 +1,37 @@
-# Gas Price Reporting Index
+# Ethereum Gas Price Reporting Index
 
-> Collection of All Gas Price Prediction and Reporting Services and their various formats
+EVM Gas Reporting Index: Catalogue of Transaction Pricing Services and their implementation differences
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6548453.svg)](https://doi.org/10.5281/zenodo.6548453) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/sambacha/gas-reporting)
+This originally started as a simple collection of *All Gas Price Prediction and Reporting Services and their various formats* (i.e. an index of all the different gas pricing api's).
 
-Previous Releases: <br />
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11077372.svg)](https://doi.org/10.5281/zenodo.11077372)
+
+
+Report Version Releases: <br />
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/sambacha/gas-reporting)    
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6548453.svg)](https://doi.org/10.5281/zenodo.6548453)    
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5702504.svg)](https://doi.org/10.5281/zenodo.5702504)
 
 
-## SoK EVM Gas Reporting Index: Catalogue of Transaction Pricing Services and their implementation differences 
+<!-- TOC --><a name="evm-gas-reporting-index-catalogue-of-transaction-pricing-services-and-their-implementation-differences"></a>
+
+## SoK: EVM Gas Pricing Methods, Mechanics and Transaction Pricing Services
+
+> *27 Apr. 2024*, doi:10.5281/zenodo.11077372.
+
+
+### Citation
 
 > [see CITATION.cff](https://github.com/sambacha/gas-reporting/blob/master/CITATION.cff)
 
-### Version 2.0 (2024 Latest)
 
-```citation
-Bacha, Sam. (2024). SoK EVM Gas Pricing APIs: Transaction Pricing Services and their implementation differences (Version 2.0.0) [Computer software]. https://doi.org/10.5281/zenodo.1234
-```
-
-### Version 1.1.12 (2022 Release)
+Bacha, S. (2024) “SoK EVM Gas Pricing Methods, Mechanics and Transaction Pricing Services”. Zenodo. doi: 10.5281/zenodo.11077372.
 
 ```
-Bacha, S. (2021, 2022). EVM Gas Reporting Index: Catalog of Transaction Pricing Services and their implementation differences (Version 1.1.12) [Computer software]. https://doi.org/10.5281/zenodo.1234
+[v2.0.0] Bacha, Sam. (2024). SoK EVM Gas Pricing APIs: Transaction Pricing Services and their implementation differences (Version 2.0.0) [Computer software]. https://doi.org/10.5281/zenodo.1234
+[v1.1.12] S. Bacha, (2021, 2022). EVM Gas Reporting Index: Catalog of Transaction Pricing Services and their implementation differences (Version 1.1.12) [Computer software]. https://doi.org/10.5281/zenodo.1234
 ```
 
-```bibtex
-@software{Bacha_Gas_Reporting_Index_2022,
-author = {Bacha, Sam},
-license = {CC-2.5-NC/MIT},
-month = {6},
-title = {{Gas Reporting Index}},
-url = {https://github.com/sambacha/gas-reporting},
-version = {1.1.12},
-year = {2021-2022}
-}
-```
 
 <!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
 
@@ -100,38 +97,6 @@ year = {2021-2022}
 
 
 <!-- TOC --><a name="gas-price-reporting-index"></a>
-# Gas Price Reporting Index
-
-> Collection of All Gas Price Prediction and Reporting Services and their various formats
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6548453.svg)](https://doi.org/10.5281/zenodo.6548453) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/sambacha/gas-reporting)
-
-Previous Releases: <br />
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5702504.svg)](https://doi.org/10.5281/zenodo.5702504)
-
-
-<!-- TOC --><a name="evm-gas-reporting-index-catalogue-of-transaction-pricing-services-and-their-implementation-differences"></a>
-## EVM Gas Reporting Index: Catalogue of Transaction Pricing Services and their implementation differences 
-
-> [see CITATION.cff](https://github.com/sambacha/gas-reporting/blob/master/CITATION.cff)
-
-Bacha, Sam. (2024). SoK EVM Gas Pricing APIs: Transaction Pricing Services and their implementation differences (Version 2.0.0) [Computer software]. https://doi.org/10.5281/zenodo.1234
-
-```
-Bacha, S. (2021, 2022). EVM Gas Reporting Index: Catalog of Transaction Pricing Services and their implementation differences (Version 1.1.12) [Computer software]. https://doi.org/10.5281/zenodo.1234
-```
-
-```bibtex
-@software{Bacha_Gas_Reporting_Index_2022,
-author = {Bacha, Sam},
-license = {CC-2.5-NC/MIT},
-month = {6},
-title = {{Gas Reporting Index}},
-url = {https://github.com/sambacha/gas-reporting},
-version = {1.1.12},
-year = {2021-2022}
-}
-```
 
 
 <!-- TOC --><a name="eip-2930-optional-access-list-transactions"></a>
