@@ -1,0 +1,8 @@
+{
+  "name": "Hydrated transactions",
+  "required": true,
+  "schema": {
+    "title": "hydrated",
+    "type": "boolean"
+  }
+}

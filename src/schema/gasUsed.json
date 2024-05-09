@@ -1,0 +1,8 @@
+{
+  "name": "Gas used",
+  "schema": {
+    "title": "hex encoded unsigned integer",
+    "type": "string",
+    "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$"
+  }
+}
