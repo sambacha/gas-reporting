@@ -216,6 +216,8 @@ FooTest:testSetFoo() (gas: 64071)
 BarTest:testFuzzCurrentBar(uint256) (runs: 256, μ: 408, ~: 423)
 ```
 
+runs: {runs}, μ: {mean_gas}, ~: {median_gas})
+
 <!-- TOC --><a name="json-schema-definition"></a>
 ### JSON-Schema definition
 
