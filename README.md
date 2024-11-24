@@ -100,17 +100,103 @@
 Bacha, S. (2021, 2022). EVM Gas Reporting Index: Catalog of Transaction Pricing Services and their implementation differences (Version 1.1.12) [Computer software]. https://doi.org/10.5281/zenodo.1234
 ```
 
+```
+Bacha, S. (2021, 2022, 2024). EVM Gas Reporting Index: Catalog of Transaction Pricing Services and their implementation differences (Version 2.0.0) [Computer software]. ~~https://doi.org/10.5281/zenodo.1234~~
+```
+
 ```bibtex
-@software{Bacha_Gas_Reporting_Index_2022,
+@software{Bacha_Gas_Reporting_Index_2024,
 author = {Bacha, Sam},
 license = {CC-2.5-NC/MIT},
-month = {6},
 title = {{Gas Reporting Index}},
 url = {https://github.com/sambacha/gas-reporting},
-version = {1.1.12},
-year = {2021-2022}
+version = {2.0.0},
+month = {11},
+year = {2021-2024}
 }
 ```
+
+## MetaMask Gas Fee API
+
+> <https://gas.api.infura.io/networks/1/suggestedGasFees>
+
+> **NOTE**
+> GET https://gas.api.infura.io/networks/${chainId}/suggestedGasFees
+
+
+
+
+- `low`, `medium`, `high` - Object containing recommended values for transactions by level of urgency:
+    - `suggestedMaxPriorityFeePerGas`: `string` - The maximum suggested priority fee per gas (in gwei) to pay to have transactions included in a block.
+    - `suggestedMaxFeePerGas`: `string` - The maximum suggested total fee per gas (in gwei) to pay, including both the base fee and the priority fee.
+    - `minWaitTimeEstimate`: `number` - The minimum estimated wait time (in milliseconds) for a transaction to be included in a block at the suggested gas price.
+    - `maxWaitTimeEstimate`: `number` - The maximum estimated wait time (in milliseconds) for a transaction to be included in a block at the suggested gas price.
+- `estimatedBaseFee`: `string` - The current estimated base fee per gas on the network.
+- `networkCongestion`: `number` - The current congestion on the network, represented as a number between `0` and `1`. A lower network congestion score (for example `0.1`), indicates that fewer transactions are being submitted, so it's cheaper to validate transactions.
+- `latestPriorityFeeRange`: `array` - The range of priority fees per gas for recent transactions on the network.
+- `historicalPriorityFeeRange`: `array` - The range of priority fees per gas for transactions on the network over a historical period.
+- `historicalBaseFeeRange`: `array` - The range of base fees per gas on the network over a historical period.
+- `priorityFeeTrend`: `string` - The current trend in priority fees on the network, either `up` or `down` (whether it's getting more expensive or cheaper).
+- `baseFeeTrend`: `string` - The current trend in base fees on the network, either `up` or `down` (whether it's getting more expensive or cheaper).
+
+> source <https://docs.metamask.io/services/reference/gas-api/api-reference/gasprices-type2/>
+>
+> 
+
+### Example Return
+
+| Priority Level | Suggested Max Priority Fee Per Gas | Suggested Max Fee Per Gas | Min Wait Time Estimate (ms) | Max Wait Time Estimate (ms) |
+|----------------|------------------------------------|---------------------------|-----------------------------|-----------------------------|
+| Low            | N/A                                | N/A                       | 15000                       | 60000                       |
+| Medium         | 0.97                               | 11.694730357              | 15000                       | 45000                       |
+| High           | 2                                  | 19.249566308              | 15000                       | 30000                       |
+
+| Additional Data          | Value           |
+|--------------------------|-----------------|
+| Estimated Base Fee       | 7.499811438     |
+| Network Congestion       | 0.0305          |
+
+
+```jsonc
+{
+  "low": {
+    "suggestedMaxPriorityFeePerGas": "0.008836",
+    "suggestedMaxFeePerGas": "7.508647438",
+    "minWaitTimeEstimate": 15000,
+    "maxWaitTimeEstimate": 60000
+  },
+  "medium": {
+    "suggestedMaxPriorityFeePerGas": "0.97",
+    "suggestedMaxFeePerGas": "11.694730357",
+    "minWaitTimeEstimate": 15000,
+    "maxWaitTimeEstimate": 45000
+  },
+  "high": {
+    "suggestedMaxPriorityFeePerGas": "2",
+    "suggestedMaxFeePerGas": "19.249566308",
+    "minWaitTimeEstimate": 15000,
+    "maxWaitTimeEstimate": 30000
+  },
+  "estimatedBaseFee": "7.499811438",
+  "networkCongestion": 0.0305,
+  "latestPriorityFeeRange": [
+    "0.0094",
+    "5.249868006"
+  ],
+  "historicalPriorityFeeRange": [
+    "0.000824616",
+    "269.34304631"
+  ],
+  "historicalBaseFeeRange": [
+    "7.061724017",
+    "10.741515604"
+  ],
+  "priorityFeeTrend": "up",
+  "baseFeeTrend": "up",
+  "version": "0.0.1"
+}
+```
+  
 
 ## Foundry Table
 
