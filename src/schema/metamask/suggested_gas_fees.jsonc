@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "low": {
+      "type": "object",
+      "properties": {
+        "suggestedMaxPriorityFeePerGas": {
+          "type": "string"
+        },
+        "suggestedMaxFeePerGas": {
+          "type": "string"
+        },
+        "minWaitTimeEstimate": {
+          "type": "integer"
+        },
+        "maxWaitTimeEstimate": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "suggestedMaxPriorityFeePerGas",
+        "suggestedMaxFeePerGas",
+        "minWaitTimeEstimate",
+        "maxWaitTimeEstimate"
+      ]
+    },
+    "medium": {
+      "type": "object",
+      "properties": {
+        "suggestedMaxPriorityFeePerGas": {
+          "type": "string"
+        },
+        "suggestedMaxFeePerGas": {
+          "type": "string"
+        },
+        "minWaitTimeEstimate": {
+          "type": "integer"
+        },
+        "maxWaitTimeEstimate": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "suggestedMaxPriorityFeePerGas",
+        "suggestedMaxFeePerGas",
+        "minWaitTimeEstimate",
+        "maxWaitTimeEstimate"
+      ]
+    },
+    "high": {
+      "type": "object",
+      "properties": {
+        "suggestedMaxPriorityFeePerGas": {
+          "type": "string"
+        },
+        "suggestedMaxFeePerGas": {
+          "type": "string"
+        },
+        "minWaitTimeEstimate": {
+          "type": "integer"
+        },
+        "maxWaitTimeEstimate": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "suggestedMaxPriorityFeePerGas",
+        "suggestedMaxFeePerGas",
+        "minWaitTimeEstimate",
+        "maxWaitTimeEstimate"
+      ]
+    },
+    "estimatedBaseFee": {
+      "type": "string"
+    },
+    "networkCongestion": {
+      "type": "number"
+    },
+    "latestPriorityFeeRange": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "historicalPriorityFeeRange": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "historicalBaseFeeRange": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "priorityFeeTrend": {
+      "type": "string"
+    },
+    "baseFeeTrend": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "low",
+    "medium",
+    "high",
+    "estimatedBaseFee",
+    "networkCongestion",
+    "latestPriorityFeeRange",
+    "historicalPriorityFeeRange",
+    "historicalBaseFeeRange",
+    "priorityFeeTrend",
+    "baseFeeTrend",
+    "version"
+  ]
+}
