@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "system": {
+      "type": "string"
+    },
+    "network": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "maxPrice": {
+      "type": "number"
+    },
+    "currentBlockNumber": {
+      "type": "number"
+    },
+    "msSinceLastBlock": {
+      "type": "number"
+    },
+    "blockPrices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "blockNumber": {
+            "type": "number"
+          },
+          "baseFeePerGas": {
+            "type": "number"
+          },
+          "estimatedTransactionCount": {
+            "type": "number"
+          },
+          "estimatedPrices": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "confidence": {
+                  "type": "number"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "maxPriorityFeePerGas": {
+                  "type": "number"
+                },
+                "maxFeePerGas": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "confidence",
+                "price",
+                "maxPriorityFeePerGas",
+                "maxFeePerGas"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

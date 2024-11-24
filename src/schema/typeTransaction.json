@@ -1,0 +1,275 @@
+[
+  {
+    "name": "Transaction",
+    "required": true,
+    "schema": {
+      "title": "Transaction object with sender",
+      "type": "object",
+      "required": [
+        "from"
+      ],
+      "oneOf": [
+        {
+          "type": "object",
+          "title": "EIP-1559 transaction.",
+          "required": [
+            "type",
+            "nonce",
+            "gas",
+            "value",
+            "input",
+            "maxFeePerGas",
+            "maxPriorityFeePerGas",
+            "chainId",
+            "accessList"
+          ],
+          "properties": {
+            "type": {
+              "title": "type",
+              "type": "string",
+              "pattern": "^0x([0-9,a-f,A-F]?){1,2}$"
+            },
+            "nonce": {
+              "title": "nonce",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$"
+            },
+            "to": {
+              "title": "to address",
+              "type": "string",
+              "pattern": "^0x[0-9,a-f,A-F]{40}$"
+            },
+            "gas": {
+              "title": "gas limit",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$"
+            },
+            "value": {
+              "title": "value",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$"
+            },
+            "input": {
+              "title": "input data",
+              "type": "string",
+              "pattern": "^0x[0-9a-f]*$"
+            },
+            "maxPriorityFeePerGas": {
+              "title": "max priority fee per gas",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$",
+              "description": "Maximum fee per gas the sender is willing to pay to miners in wei"
+            },
+            "maxFeePerGas": {
+              "title": "max fee per gas",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$",
+              "description": "The maximum total fee per gas the sender is willing to pay (includes the network / base fee and miner / priority fee) in wei"
+            },
+            "accessList": {
+              "title": "accessList",
+              "type": "array",
+              "description": "EIP-2930 access list",
+              "items": {
+                "title": "Access list entry",
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "title": "hex encoded address",
+                    "type": "string",
+                    "pattern": "^0x[0-9,a-f,A-F]{40}$"
+                  },
+                  "storageKeys": {
+                    "type": "array",
+                    "items": {
+                      "title": "32 byte hex value",
+                      "type": "string",
+                      "pattern": "^0x[0-9a-f]{64}$"
+                    }
+                  }
+                }
+              }
+            },
+            "chainId": {
+              "title": "chainId",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$",
+              "description": "Chain ID that this transaction is valid on."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "EIP-2930 transaction.",
+          "required": [
+            "type",
+            "nonce",
+            "gas",
+            "value",
+            "input",
+            "gasPrice",
+            "chainId",
+            "accessList"
+          ],
+          "properties": {
+            "type": {
+              "title": "type",
+              "type": "string",
+              "pattern": "^0x([0-9,a-f,A-F]?){1,2}$"
+            },
+            "nonce": {
+              "title": "nonce",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$"
+            },
+            "to": {
+              "title": "to address",
+              "type": "string",
+              "pattern": "^0x[0-9,a-f,A-F]{40}$"
+            },
+            "gas": {
+              "title": "gas limit",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$"
+            },
+            "value": {
+              "title": "value",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$"
+            },
+            "input": {
+              "title": "input data",
+              "type": "string",
+              "pattern": "^0x[0-9a-f]*$"
+            },
+            "gasPrice": {
+              "title": "gas price",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$",
+              "description": "The gas price willing to be paid by the sender in wei"
+            },
+            "accessList": {
+              "title": "accessList",
+              "type": "array",
+              "description": "EIP-2930 access list",
+              "items": {
+                "title": "Access list entry",
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "title": "hex encoded address",
+                    "type": "string",
+                    "pattern": "^0x[0-9,a-f,A-F]{40}$"
+                  },
+                  "storageKeys": {
+                    "type": "array",
+                    "items": {
+                      "title": "32 byte hex value",
+                      "type": "string",
+                      "pattern": "^0x[0-9a-f]{64}$"
+                    }
+                  }
+                }
+              }
+            },
+            "chainId": {
+              "title": "chainId",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$",
+              "description": "Chain ID that this transaction is valid on."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "Legacy transaction.",
+          "required": [
+            "type",
+            "nonce",
+            "gas",
+            "value",
+            "input",
+            "gasPrice"
+          ],
+          "properties": {
+            "type": {
+              "title": "type",
+              "type": "string",
+              "pattern": "^0x([0-9,a-f,A-F]?){1,2}$"
+            },
+            "nonce": {
+              "title": "nonce",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$"
+            },
+            "to": {
+              "title": "to address",
+              "type": "string",
+              "pattern": "^0x[0-9,a-f,A-F]{40}$"
+            },
+            "gas": {
+              "title": "gas limit",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$"
+            },
+            "value": {
+              "title": "value",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$"
+            },
+            "input": {
+              "title": "input data",
+              "type": "string",
+              "pattern": "^0x[0-9a-f]*$"
+            },
+            "gasPrice": {
+              "title": "gas price",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$",
+              "description": "The gas price willing to be paid by the sender in wei"
+            },
+            "chainId": {
+              "title": "chainId",
+              "type": "string",
+              "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$",
+              "description": "Chain ID that this transaction is valid on."
+            }
+          }
+        }
+      ],
+      "properties": {
+        "from": {
+          "title": "from",
+          "type": "string",
+          "pattern": "^0x[0-9,a-f,A-F]{40}$"
+        }
+      }
+    }
+  },
+  {
+    "name": "Block",
+    "required": false,
+    "schema": {
+      "title": "Block number or tag",
+      "oneOf": [
+        {
+          "title": "Block number",
+          "type": "string",
+          "pattern": "^0x([1-9a-f]+[0-9a-f]*|0)$"
+        },
+        {
+          "title": "Block tag",
+          "type": "string",
+          "enum": [
+            "earliest",
+            "finalized",
+            "safe",
+            "latest",
+            "pending"
+          ],
+          "description": "`earliest`: The lowest numbered block the client has available; `finalized`: The most recent crypto-economically secure block, cannot be re-orged outside of manual intervention driven by community coordination; `safe`: The most recent block that is safe from re-orgs under honest majority and certain synchronicity assumptions; `latest`: The most recent block in the canonical chain observed by the client, this block may be re-orged out of the canonical chain even under healthy/normal conditions; `pending`: A sample next block built by the client on top of `latest` and containing the set of transactions usually taken from local mempool. Before the merge transition is finalized, any call querying for `finalized` or `safe` block MUST be responded to with `-39001: Unknown block` error"
+        }
+      ]
+    }
+  }
+]

@@ -35,12 +35,13 @@ Bacha, S. (2024) “SoK EVM Gas Pricing Methods, Mechanics and Transaction Prici
 
 <!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
 
-- [Gas Price Reporting Index](#gas-price-reporting-index)
-   * [EVM Gas Reporting Index: Catalogue of Transaction Pricing Services and their implementation differences ](#evm-gas-reporting-index-catalogue-of-transaction-pricing-services-and-their-implementation-differences)
+- [Ethereum Gas Price Reporting Index](#ethereum-gas-price-reporting-index)
    * [EIP-2930: Optional Access List transactions](#eip-2930-optional-access-list-transactions)
       + [Accessed addresses](#accessed-addresses)
       + [`eth_createAccessList`](#eth_createaccesslist)
          - [Conclusion](#conclusion)
+   * [MetaMask Gas Fee API](#metamask-gas-fee-api)
+      + [Example Return](#example-return)
    * [Gas Fee Speed Definitions](#gas-fee-speed-definitions)
    * [Gas Reporting Table Format](#gas-reporting-table-format)
    * [Gas Snapshot Format](#gas-snapshot-format)
@@ -92,8 +93,21 @@ Bacha, S. (2024) “SoK EVM Gas Pricing Methods, Mechanics and Transaction Prici
       + [URL Index](#url-index)
       + [EVM Params](#evm-params)
 
-<!-- TOC end -->
 
+```
+author = {Bacha, Sam},
+license = {CC-2.5-NC/MIT},
+title = {{Gas Reporting Index}},
+url = {https://github.com/sambacha/gas-reporting},
+version = {2.0.0},
+month = {11},
+year = {2021-2024}
+}
+```
+
+```
+Bacha, S. (2021, 2022, 2024). EVM Gas Reporting Index: Catalog of Transaction Pricing Services and their implementation differences (Version 2.0.0) [Computer software]. ~~https://doi.org/10.5281/zenodo.1234~~
+```
 
 
 <!-- TOC --><a name="gas-price-reporting-index"></a>
@@ -183,6 +197,86 @@ That is, it gives you the list of addresses and storage keys that will be used b
 
 Does this mean that we always save gas when using transaction’s with access lists? No.
 
+
+## MetaMask Gas Fee API
+
+> <https://gas.api.infura.io/networks/1/suggestedGasFees>
+
+> **NOTE**
+> GET https://gas.api.infura.io/networks/${chainId}/suggestedGasFees
+
+
+- `low`, `medium`, `high` - Object containing recommended values for transactions by level of urgency:
+    - `suggestedMaxPriorityFeePerGas`: `string` - The maximum suggested priority fee per gas (in gwei) to pay to have transactions included in a block.
+    - `suggestedMaxFeePerGas`: `string` - The maximum suggested total fee per gas (in gwei) to pay, including both the base fee and the priority fee.
+    - `minWaitTimeEstimate`: `number` - The minimum estimated wait time (in milliseconds) for a transaction to be included in a block at the suggested gas price.
+    - `maxWaitTimeEstimate`: `number` - The maximum estimated wait time (in milliseconds) for a transaction to be included in a block at the suggested gas price.
+- `estimatedBaseFee`: `string` - The current estimated base fee per gas on the network.
+- `networkCongestion`: `number` - The current congestion on the network, represented as a number between `0` and `1`. A lower network congestion score (for example `0.1`), indicates that fewer transactions are being submitted, so it's cheaper to validate transactions.
+- `latestPriorityFeeRange`: `array` - The range of priority fees per gas for recent transactions on the network.
+- `historicalPriorityFeeRange`: `array` - The range of priority fees per gas for transactions on the network over a historical period.
+- `historicalBaseFeeRange`: `array` - The range of base fees per gas on the network over a historical period.
+- `priorityFeeTrend`: `string` - The current trend in priority fees on the network, either `up` or `down` (whether it's getting more expensive or cheaper).
+- `baseFeeTrend`: `string` - The current trend in base fees on the network, either `up` or `down` (whether it's getting more expensive or cheaper).
+
+> source <https://docs.metamask.io/services/reference/gas-api/api-reference/gasprices-type2/>
+>
+> 
+
+### Example Return
+
+| Priority Level | Suggested Max Priority Fee Per Gas | Suggested Max Fee Per Gas | Min Wait Time Estimate (ms) | Max Wait Time Estimate (ms) |
+|----------------|------------------------------------|---------------------------|-----------------------------|-----------------------------|
+| Low            | N/A                                | N/A                       | 15000                       | 60000                       |
+| Medium         | 0.97                               | 11.694730357              | 15000                       | 45000                       |
+| High           | 2                                  | 19.249566308              | 15000                       | 30000                       |
+
+| Additional Data          | Value           |
+|--------------------------|-----------------|
+| Estimated Base Fee       | 7.499811438     |
+| Network Congestion       | 0.0305          |
+
+
+```jsonc
+{
+  "low": {
+    "suggestedMaxPriorityFeePerGas": "0.008836",
+    "suggestedMaxFeePerGas": "7.508647438",
+    "minWaitTimeEstimate": 15000,
+    "maxWaitTimeEstimate": 60000
+  },
+  "medium": {
+    "suggestedMaxPriorityFeePerGas": "0.97",
+    "suggestedMaxFeePerGas": "11.694730357",
+    "minWaitTimeEstimate": 15000,
+    "maxWaitTimeEstimate": 45000
+  },
+  "high": {
+    "suggestedMaxPriorityFeePerGas": "2",
+    "suggestedMaxFeePerGas": "19.249566308",
+    "minWaitTimeEstimate": 15000,
+    "maxWaitTimeEstimate": 30000
+  },
+  "estimatedBaseFee": "7.499811438",
+  "networkCongestion": 0.0305,
+  "latestPriorityFeeRange": [
+    "0.0094",
+    "5.249868006"
+  ],
+  "historicalPriorityFeeRange": [
+    "0.000824616",
+    "269.34304631"
+  ],
+  "historicalBaseFeeRange": [
+    "7.061724017",
+    "10.741515604"
+  ],
+  "priorityFeeTrend": "up",
+  "baseFeeTrend": "up",
+  "version": "0.0.1"
+}
+```
+  
 <!-- TOC --><a name="gas-fee-speed-definitions"></a>
 ## Gas Fee Speed Definitions
 
