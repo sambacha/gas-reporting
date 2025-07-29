@@ -1,0 +1,325 @@
+\documentclass[letterpaper,10pt]{article} % Single column, letterpaper, 10pt font
+\usepackage[a4paper, margin=1in]{geometry} % Set margins explicitly
+
+\usepackage[dvipsnames]{xcolor} % For colors like Bittersweet, NavyBlue, OliveGreen, Plum, ForestGreen
+
+% Core annotation package: MUST be loaded early
+\usepackage{annotate-equations}
+% Redefinitions from the example for annotation text and highlight height
+\renewcommand{\eqnannotationtext}[1]{#1}
+\renewcommand{\eqnhighlightheight}{}
+% Global font for annotations, as seen in example
+\renewcommand{\eqnannotationfont}{\sffamily\footnotesize}
+
+%%% standard math packages for equations:
+\usepackage{amsmath}
+\usepackage{amsthm} % From example
+\usepackage{amssymb}
+\usepackage{mathtools, nccmath} % From example
+
+\usepackage{hyperref} % From example
+\usepackage{cleveref} % From example
+
+% To generate dummy text (for abstract/intro sections)
+\usepackage{blindtext}
+
+% graphicx for images (not used in current content, but good to include if following example)
+\usepackage{graphicx}
+
+% for custom commands
+\usepackage{xspace} % From example
+
+% table alignment
+\usepackage{array}
+\usepackage{longtable} % Re-added for symbol legend
+\usepackage{ragged2e} % From example
+\newcolumntype{P}[1]{>{\RaggedRight\hspace{0pt}}p{#1}} % From example
+\newcolumntype{X}[1]{>{\RaggedRight\hspace*{0pt}}p{#1}} % From example
+
+% xkcd colors (from example, not directly used in annotations, but keeping for consistency)
+\usepackage{xkcdcolors}
+
+% Define custom colors for annotations (still useful for eqnmarkbox and overbrace text)
+\definecolor{arbitrumblue}{RGB}{40, 160, 240}
+\definecolor{optimismred}{RGB}{234, 57, 67}
+\definecolor{layer2green}{RGB}{34, 139, 34}
+\definecolor{layer1orange}{RGB}{255, 140, 0}
+\definecolor{gascolor}{RGB}{128, 0, 128}
+
+% Custom commands for consistent notation
+\newcommand{\layer}[1]{\mathcal{L}_{#1}}
+\newcommand{\fee}[2]{\mathcal{F}_{#1}^{#2}}
+\newcommand{\price}[1]{\rho_{#1}}
+\newcommand{\gas}[1]{\gamma_{#1}}
+\newcommand{\data}[1]{\delta_{#1}}
+\newcommand{\compress}[1]{\zeta_{#1}}
+\newcommand{\overhead}[1]{\omega_{#1}}
+
+% Removed custom \highlight command as eqnmarkbox handles it
+
+\begin{document}
+
+\title{Gas Fee Models for Layer 2 Blockchains} % Dummy title
+\author{
+{\bf Sam Bacha}\\ % Dummy author
+{Block Rotation}
+} % end author
+
+\maketitle
+
+% \tableofcontents % Table of contents is usually at the start of an article, but can be omitted.
+
+\section*{Abstract} % Added abstract as common in articles
+\text{TODO}
+
+\section{Introduction}
+\text{TODO}
+
+\tableofcontents % Placed here as in the example document
+\newpage
+\section{Mathematical Notation and Symbols} % Changed from \chapter to \section
+
+\subsection{Symbol Legend} % Changed from \section to \subsection
+
+\begin{longtable}{l l p{8cm}}
+\hline
+\textbf{Symbol} & \textbf{Type} & \textbf{Description} \\
+\hline
+\endhead
+
+\multicolumn{3}{c}{\textbf{Layer Notation}} \\
+$\layer{1}$ & Subscript & Layer 1 (Ethereum mainnet) \\
+$\layer{2}$ & Subscript & Layer 2 (Arbitrum or Optimism) \\
+
+\multicolumn{3}{c}{\textbf{Fee Components}} \\
+$\fee{\text{total}}{2}$ & Variable & Total gas fee on Layer 2 \\
+$\fee{\text{exec}}{2}$ & Variable & Execution fee on Layer 2 \\
+$\fee{\text{data}}{1}$ & Variable & Data availability fee on Layer 1 \\
+
+\multicolumn{3}{c}{\textbf{Gas Parameters}} \\
+$\rho_{\layer{i}}$ & Variable & Gas price on layer $i$ \\
+$\gamma_{\text{used}}$ & Variable & Gas units consumed \\
+$\gamma_{\text{data}}$ & Variable & Gas units for transaction data \\
+$\rho_{\text{base}}$ & Variable & Base fee per gas \\
+$\rho_{\text{priority}}$ & Variable & Priority fee per gas \\
+$\rho_{\text{floor}}$ & Constant & Minimum gas price (floor) \\
+
+\multicolumn{3}{c}{\textbf{Data Processing}} \\
+$\delta$ & Variable & Transaction data \\
+$\zeta(\cdot)$ & Function & Compression algorithm \\
+$\eta_0(\cdot)$ & Function & Count of zero bytes \\
+$\eta_1(\cdot)$ & Function & Count of non-zero bytes \\
+
+\multicolumn{3}{c}{\textbf{Overhead Parameters}} \\
+$\omega_{\text{fixed}}$ & Constant & Fixed overhead (Optimism) \\
+$\omega_{\text{dynamic}}$ & Variable & Dynamic overhead scalar (Optimism) \\
+
+\multicolumn{3}{c}{\textbf{Constants}} \\
+$c_0$ & Constant & Gas cost per zero byte (4 gas) \\
+$c_1$ & Constant & Gas cost per non-zero byte (16 gas) \\
+
+\hline
+\end{longtable}
+
+\subsection{Mathematical Operators} % Changed from \section to \subsection
+
+\begin{itemize}
+    \item $\min\{a, b\}$: Minimum of $a$ and $b$
+    \item $|\cdot|$: Cardinality or count operator
+    \item $\mathbb{1}[\cdot]$: Indicator function
+    \item $\sum$: Summation operator
+    \item $\times$: Multiplication operator
+\end{itemize}
+
+\section{Arbitrum Gas Fee Model} % Changed from \chapter to \section
+
+\subsection{Total Gas Fee} % Changed from \section to \subsection
+
+The total gas fee for a Layer 2 transaction on Arbitrum is given by:
+\begin{equation}
+    \label{eq:arbitrum_total_fee}
+    \overbrace{
+        \eqnmarkbox[arbitrumblue]{totalL2fee}{\fee{\text{total}}{2}} = 
+        \eqnmarkbox[arbitrumblue]{execComp}{\fee{\text{exec}}{2}} + 
+        \eqnmarkbox[layer1orange]{dataAvailComp}{\fee{\text{data}}{1}}
+    }^{\substack{\textcolor{arbitrumblue!85}{Total Layer 2 fee} \\ \textcolor{arbitrumblue!85}{on Arbitrum} }}
+\end{equation}
+\annotate[yshift=-2.2em]{below,left}{execComp}{Execution component} % Increased yshift
+\annotate[yshift=-2.2em]{below,right}{dataAvailComp}{Data availability component} % Increased yshift
+
+\newpage
+\subsection{Execution Fee Component} % Changed from \section to \subsection
+
+The execution fee $\fee{\text{exec}}{2}$ is calculated as the product of gas price and gas consumed:
+\newline
+\vspace{1.5cm} % Adds 1cm of vertical space
+\begin{equation}
+    \label{eq:arbitrum_exec_fee}
+    \fee{\text{exec}}{2} = 
+    \eqnmarkbox[arbitrumblue]{effectiveGasPrice}{\rho_{\layer{2}}} \times 
+    \eqnmarkbox[gascolor]{gasConsumption}{\gamma_{\text{used}}}
+\end{equation}
+\annotate[yshift=2.2em]{above,left}{effectiveGasPrice}{Effective gas price} % Increased yshift
+\annotate[yshift=2.2em]{above,right}{gasConsumption}{Gas consumption} % Increased yshift
+
+where the effective gas price $\rho_{\layer{2}}$ is subject to a floor constraint:
+\vspace{1.5cm} % Adds 1cm of vertical space
+\begin{equation}
+    \label{eq:arbitrum_gas_price_floor}
+    \rho_{\layer{2}} = \min\left\{
+    \eqnmarkbox[optimismred]{marketPrice}{\rho_{\text{base}}^{\layer{2}} + \rho_{\text{priority}}^{\layer{2}}}, 
+    \eqnmarkbox[layer2green]{networkMin}{\rho_{\text{floor}}}
+    \right\}
+\end{equation}
+\annotate[yshift=-2.2em]{below}{marketPrice}{Market-determined price} % Increased yshift
+\annotate[yshift=2.2em]{above}{networkMin}{Network minimum} % Increased yshift
+\vspace{2.5cm} % Adds 1cm of vertical space
+\vspace{1.5cm} % Adds 1cm of vertical space
+
+\vspace{\baselineskip} % Add space before the equation
+The gas price floor $\rho_{\text{floor}}$ is network-specific:
+\vspace{1.5cm} % Adds 1cm of vertical space
+
+\begin{equation}
+    \label{eq:arbitrum_floor_values}
+    \rho_{\text{floor}} = \begin{cases}
+    \eqnmarkbox[arbitrumblue]{arbitrumOneFloor}{10^{-1} \text{ Gwei}}, & \text{if network} = \text{Arbitrum One} \\
+    \eqnmarkbox[arbitrumblue]{arbitrumNovaFloor}{10^{-2} \text{ Gwei}}, & \text{if network} = \text{Arbitrum Nova}
+    \end{cases}
+\end{equation}
+% Annotations for cases need careful positioning
+\annotate[yshift=2.5em]{above,left}{arbitrumOneFloor}{Arbitrum One} % Increased yshift
+\annotate[yshift=2.5em]{above,left}{arbitrumNovaFloor}{Arbitrum Nova} % Increased yshift
+\vspace{\baselineskip} % Add space after the equation
+
+\newpage
+\vspace{\baselineskip} % Added vertical space before the section
+\subsection{Data Fee Component} % Changed from \section to \subsection
+
+The data availability fee $\fee{\text{data}}{1}$ incorporates compression rewards:
+\begin{equation}
+    \label{eq:arbitrum_data_fee}
+    \fee{\text{data}}{1} = 
+    \eqnmarkbox[layer1orange]{l1GasPrice}{\rho_{\layer{1}}} \times 
+    \eqnmarkbox[arbitrumblue]{compressedSize}{\zeta_{\text{brotli}}(\delta)} \times 
+    \eqnmarkbox[gascolor]{calldataGasCost}{c_1}
+\end{equation}
+\annotate[yshift=-2.2em]{below,left}{l1GasPrice}{L1 gas price} % Increased yshift
+\annotate[yshift=2.2em]{above}{compressedSize}{Compressed size} % Increased yshift
+\annotate[yshift=-2.2em]{below,right}{calldataGasCost}{Calldata gas cost} % Increased yshift
+
+where:
+\begin{itemize}
+    \item $\delta$ represents the transaction data
+    \item $\zeta_{\text{brotli}}(\delta)$ is the Brotli-zero compression algorithm output
+    \item $c_1 = 16$ gas units per byte
+\end{itemize}
+
+\section{Optimism Gas Fee Model} % Changed from \chapter to \section
+
+\subsection{Total Gas Fee} % Changed from \section to \subsection
+
+The total gas fee structure for Optimism follows a similar decomposition:
+\vspace{2.5cm} % Adds 1cm of vertical space
+
+\begin{equation}
+    \label{eq:optimism_total_fee}
+    \overbrace{
+        \eqnmarkbox[layer2green]{optimismTotalFee}{\fee{\text{total}}{2}} = 
+        \eqnmarkbox[layer2green]{optimismL2Exec}{\fee{\text{exec}}{2}} + 
+        \eqnmarkbox[layer1orange]{optimismL1Data}{\fee{\text{data}}{1}}
+    }^{\substack{\textcolor{layer2green!85}{Total fee} \\ \textcolor{layer2green!85}{on Optimism} }}
+\end{equation}
+\annotate[yshift=2.2em]{above,left}{optimismL2Exec}{L2 execution} % Increased yshift
+\annotate[yshift=2.2em]{above,right}{optimismL1Data}{L1 data} % Increased yshift
+
+
+\subsection{Execution Fee Component} % Changed from \section to \subsection
+
+The execution fee calculation is straightforward:
+
+\begin{equation}
+\fee{\text{exec}}{2} = \rho_{\layer{2}} \times \gamma_{\text{used}}
+\end{equation}
+
+where the gas price is determined by:
+\medskip
+
+\section{Execution Fee}
+\addvspace{1cm}
+\begin{equation}
+    \label{eq:optimism_gas_price}
+    \rho_{\layer{2}} = 
+    \eqnmarkbox[gascolor]{noFloorConstraint}{\rho_{\text{base}}^{\layer{2}} + \rho_{\text{priority}}^{\layer{2}}}
+\end{equation}
+\annotate[yshift=2.2em]{above}{noFloorConstraint}{No floor constraint} % Increased yshift
+
+\newpage
+\vspace{\baselineskip} % Added vertical space before the section
+\subsection{Data Fee Component} % Changed from \section to \subsection
+
+The data fee calculation incorporates overhead parameters:
+\begin{equation}
+    \label{eq:optimism_data_fee}
+    \fee{\text{data}}{1} = \rho_{\layer{1}} \times 
+    \eqnmarkbox[layer2green]{adjustedGasUsage}{\left[\gamma_{\text{data}} + \omega_{\text{fixed}}\right]} \times 
+    \eqnmarkbox[layer1orange]{scalingFactor}{\omega_{\text{dynamic}}}
+\end{equation}
+\annotate[yshift=-2.2em]{below}{adjustedGasUsage}{Adjusted gas usage} % Increased yshift
+\annotate[yshift=2.2em]{above}{scalingFactor}{Scaling factor} % Increased yshift
+
+
+\subsubsection{Transaction Data Gas Calculation} % Changed from \subsection to \subsubsection
+
+The transaction data gas $\gamma_{\text{data}}$ is computed based on byte composition:
+\begin{equation}
+    \label{eq:optimism_data_gas_calc}
+    \gamma_{\text{data}} = 
+    \eqnmarkbox[layer2green]{zeroBytesContrib}{\eta_0(\delta) \times c_0} + 
+    \eqnmarkbox[optimismred]{nonZeroBytesContrib}{\eta_1(\delta) \times c_1}
+\end{equation}
+\annotate[yshift=-2.2em]{below,left}{zeroBytesContrib}{Zero bytes contribution} % Increased yshift
+\annotate[yshift=-2.2em]{below,right}{nonZeroBytesContrib}{Non-zero bytes contribution} % Increased yshift
+
+where:
+\begin{align}
+\eta_0(\delta) &= \sum_{i=1}^{|\delta|} \mathbb{1}[\delta_i = 0] \quad \text{(count of zero bytes)} \\
+\eta_1(\delta) &= \sum_{i=1}^{|\delta|} \mathbb{1}[\delta_i \neq 0] \quad \text{(count of non-zero bytes)} \\
+c_0 &= 4 \text{ gas units} \\
+c_1 &= 16 \text{ gas units}
+\end{align}
+
+\section{Comparative Analysis} % Changed from \chapter to \section
+
+\subsection{Key Differences} % Changed from \section to \subsection
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|c|c}
+\hline
+\textbf{Feature} & \textbf{Arbitrum} & \textbf{Optimism} \\
+\hline
+Gas Price Floor & $\checkmark$ & $\times$ \\
+Compression Algorithm & Brotli-zero & None \\
+Overhead Parameters & None & Fixed + Dynamic \\
+Zero Byte Optimization & Via compression & Direct calculation \\
+\hline
+\end{tabular}
+\caption{Comparison of gas fee models}
+\end{table}
+
+\subsection{Mathematical Formulation Summary} % Changed from \section to \subsection
+
+\subsubsection{Arbitrum} % Changed from \subsection to \subsubsection
+\begin{align}
+\fee{\text{total}}{2} &= \rho_{\layer{2}} \times \gamma_{\text{used}} + \rho_{\layer{1}} \times \zeta_{\text{brotli}}(\delta) \times c_1 \\
+\rho_{\layer{2}} &= \min\{\rho_{\text{base}}^{\layer{2}} + \rho_{\text{priority}}^{\layer{2}}, \rho_{\text{floor}}\}
+\end{align}
+
+\subsubsection{Optimism} % Changed from \subsection to \subsubsection
+\begin{align}
+\fee{\text{total}}{2} &= \rho_{\layer{2}} \times \gamma_{\text{used}} + \rho_{\layer{1}} \times [\gamma_{\text{data}} + \omega_{\text{fixed}}] \times \omega_{\text{dynamic}} \\
+\gamma_{\text{data}} &= \eta_0(\delta) \times c_0 + \eta_1(\delta) \times c_1
+\end{align}
+
+\end{document}
