@@ -1,0 +1,2146 @@
+{
+  "version": "2.0.0",
+  "metadata": {
+    "generated": "2025-08-17T03:26:10Z",
+    "source": "Complete Ethereum Execution Specifications",
+    "notes": "Comprehensive gas cost schedule for all Ethereum hard forks from Frontier to Osaka"
+  },
+  "forks": {
+    "frontier": {
+      "name": "Frontier",
+      "activationDate": "2015-07-30",
+      "blockNumber": 0,
+      "status": "active",
+      "eips": [],
+      "description": "Ethereum genesis - initial gas costs",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512
+        },
+        "storage": {
+          "SLOAD": 50,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_refund": 15000,
+          "SCLEAR_refund": 15000
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 40,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 40,
+          "RETURN": 0,
+          "SUICIDE": 0,
+          "SUICIDE_refund": 24000
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "DIFFICULTY": 2,
+          "GASLIMIT": 2
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": 4,
+          "G_txdatanonzero": 68,
+          "G_txcreate": 0
+        }
+      }
+    },
+    "homestead": {
+      "name": "Homestead",
+      "activationDate": "2016-03-14",
+      "blockNumber": 1150000,
+      "status": "active",
+      "eips": [
+        2,
+        7,
+        8
+      ],
+      "description": "First planned hard fork - contract creation gas fix",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512
+        },
+        "storage": {
+          "SLOAD": 50,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_refund": 15000,
+          "SCLEAR_refund": 15000
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 40,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 40,
+          "RETURN": 0,
+          "SUICIDE": 0,
+          "SUICIDE_refund": 24000
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "DIFFICULTY": 2,
+          "GASLIMIT": 2
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": 4,
+          "G_txdatanonzero": 68,
+          "G_txcreate": 32000
+        }
+      }
+    },
+    "tangerine_whistle": {
+      "name": "Tangerine Whistle",
+      "activationDate": "2016-10-18",
+      "blockNumber": 2463000,
+      "status": "active",
+      "eips": [
+        150
+      ],
+      "description": "Gas cost repricing to prevent DoS attacks",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512
+        },
+        "storage": {
+          "SLOAD": 200,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_refund": 15000,
+          "SCLEAR_refund": 15000
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 700,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 700,
+          "RETURN": 0,
+          "SUICIDE": 5000,
+          "SUICIDE_refund": 24000,
+          "DELEGATECALL": 700,
+          "EXTCODESIZE": 700,
+          "EXTCODECOPY": 700
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "DIFFICULTY": 2,
+          "GASLIMIT": 2,
+          "BALANCE": 400
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": 4,
+          "G_txdatanonzero": 68,
+          "G_txcreate": 32000
+        }
+      }
+    },
+    "spurious_dragon": {
+      "name": "Spurious Dragon",
+      "activationDate": "2016-11-22",
+      "blockNumber": 2675000,
+      "status": "active",
+      "eips": [
+        155,
+        160,
+        161,
+        170
+      ],
+      "description": "State clearing and further gas repricing",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6,
+          "EXP_byte": 50
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512
+        },
+        "storage": {
+          "SLOAD": 200,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_refund": 15000,
+          "SCLEAR_refund": 15000
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 700,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 700,
+          "RETURN": 0,
+          "SUICIDE": 5000,
+          "SUICIDE_refund": 24000,
+          "DELEGATECALL": 700,
+          "EXTCODESIZE": 700,
+          "EXTCODECOPY": 700
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "DIFFICULTY": 2,
+          "GASLIMIT": 2,
+          "BALANCE": 400
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": 4,
+          "G_txdatanonzero": 68,
+          "G_txcreate": 32000
+        }
+      }
+    },
+    "byzantium": {
+      "name": "Byzantium",
+      "activationDate": "2017-10-16",
+      "blockNumber": 4370000,
+      "status": "active",
+      "eips": [
+        100,
+        140,
+        196,
+        197,
+        198,
+        211,
+        214,
+        649,
+        658
+      ],
+      "description": "New opcodes and precompiles",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6,
+          "EXP_byte": 50
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512
+        },
+        "storage": {
+          "SLOAD": 200,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_refund": 15000,
+          "SCLEAR_refund": 15000
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 700,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 700,
+          "RETURN": 0,
+          "SUICIDE": 5000,
+          "SUICIDE_refund": 24000,
+          "DELEGATECALL": 700,
+          "EXTCODESIZE": 700,
+          "EXTCODECOPY": 700,
+          "STATICCALL": 700,
+          "RETURNDATASIZE": 2,
+          "RETURNDATACOPY": 3,
+          "REVERT": 0
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "DIFFICULTY": 2,
+          "GASLIMIT": 2,
+          "BALANCE": 400
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3,
+          "ECADD": 500,
+          "ECMUL": 40000,
+          "ECPAIRING_base": 100000,
+          "ECPAIRING_pair": 80000,
+          "MODEXP": {
+            "formula": "max(200, floor(mult_complexity * max(8, iterations) / 3))"
+          }
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": 4,
+          "G_txdatanonzero": 68,
+          "G_txcreate": 32000
+        }
+      }
+    },
+    "constantinople": {
+      "name": "Constantinople",
+      "activationDate": "2019-02-28",
+      "blockNumber": 7280000,
+      "status": "active",
+      "eips": [
+        145,
+        1014,
+        1052,
+        1234,
+        1283
+      ],
+      "description": "SSTORE gas reduction and new opcodes",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6,
+          "EXP_byte": 50,
+          "SHL": 3,
+          "SHR": 3,
+          "SAR": 3
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512
+        },
+        "storage": {
+          "SLOAD": 200,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_refund": 15000,
+          "SCLEAR_refund": 15000
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 700,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 700,
+          "RETURN": 0,
+          "SUICIDE": 5000,
+          "SUICIDE_refund": 24000,
+          "DELEGATECALL": 700,
+          "EXTCODESIZE": 700,
+          "EXTCODECOPY": 700,
+          "STATICCALL": 700,
+          "RETURNDATASIZE": 2,
+          "RETURNDATACOPY": 3,
+          "REVERT": 0,
+          "CREATE2": 32000,
+          "EXTCODEHASH": 400
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "DIFFICULTY": 2,
+          "GASLIMIT": 2,
+          "BALANCE": 400
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3,
+          "ECADD": 500,
+          "ECMUL": 40000,
+          "ECPAIRING_base": 100000,
+          "ECPAIRING_pair": 80000,
+          "MODEXP": {
+            "formula": "max(200, floor(mult_complexity * max(8, iterations) / 3))"
+          }
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": 4,
+          "G_txdatanonzero": 68,
+          "G_txcreate": 32000
+        }
+      }
+    },
+    "petersburg": {
+      "name": "Petersburg",
+      "activationDate": "2019-02-28",
+      "blockNumber": 7280000,
+      "status": "active",
+      "eips": [
+        145,
+        1014,
+        1052,
+        1234
+      ],
+      "description": "Constantinople without EIP-1283",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6,
+          "EXP_byte": 50,
+          "SHL": 3,
+          "SHR": 3,
+          "SAR": 3
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512
+        },
+        "storage": {
+          "SLOAD": 200,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_refund": 15000,
+          "SCLEAR_refund": 15000
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 700,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 700,
+          "RETURN": 0,
+          "SUICIDE": 5000,
+          "SUICIDE_refund": 24000,
+          "DELEGATECALL": 700,
+          "EXTCODESIZE": 700,
+          "EXTCODECOPY": 700,
+          "STATICCALL": 700,
+          "RETURNDATASIZE": 2,
+          "RETURNDATACOPY": 3,
+          "REVERT": 0,
+          "CREATE2": 32000,
+          "EXTCODEHASH": 400
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "DIFFICULTY": 2,
+          "GASLIMIT": 2,
+          "BALANCE": 400
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3,
+          "ECADD": 500,
+          "ECMUL": 40000,
+          "ECPAIRING_base": 100000,
+          "ECPAIRING_pair": 80000,
+          "MODEXP": {
+            "formula": "max(200, floor(mult_complexity * max(8, iterations) / 3))"
+          }
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": 4,
+          "G_txdatanonzero": 68,
+          "G_txcreate": 32000
+        }
+      }
+    },
+    "istanbul": {
+      "name": "Istanbul",
+      "activationDate": "2019-12-08",
+      "blockNumber": 9069000,
+      "status": "active",
+      "eips": [
+        152,
+        1108,
+        1344,
+        1884,
+        2028,
+        2200
+      ],
+      "description": "Gas repricing and new precompiles",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6,
+          "EXP_byte": 50,
+          "SHL": 3,
+          "SHR": 3,
+          "SAR": 3
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512
+        },
+        "storage": {
+          "SLOAD": 800,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_refund": 15000,
+          "SCLEAR_refund": 15000,
+          "SSTORE_clears_refund": 15000
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 700,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 700,
+          "RETURN": 0,
+          "SUICIDE": 5000,
+          "SUICIDE_refund": 24000,
+          "DELEGATECALL": 700,
+          "EXTCODESIZE": 700,
+          "EXTCODECOPY": 700,
+          "STATICCALL": 700,
+          "RETURNDATASIZE": 2,
+          "RETURNDATACOPY": 3,
+          "REVERT": 0,
+          "CREATE2": 32000,
+          "EXTCODEHASH": 700
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "DIFFICULTY": 2,
+          "GASLIMIT": 2,
+          "BALANCE": 700,
+          "CHAINID": 2,
+          "SELFBALANCE": 5
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3,
+          "ECADD": 150,
+          "ECMUL": 6000,
+          "ECPAIRING_base": 45000,
+          "ECPAIRING_pair": 34000,
+          "MODEXP": {
+            "formula": "max(200, floor(mult_complexity * max(8, iterations) / 3))"
+          },
+          "BLAKE2F": 1
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": 4,
+          "G_txdatanonzero": 16,
+          "G_txcreate": 32000
+        }
+      }
+    },
+    "berlin": {
+      "name": "Berlin",
+      "activationDate": "2021-04-15",
+      "blockNumber": 12244000,
+      "status": "active",
+      "eips": [
+        2565,
+        2718,
+        2929,
+        2930
+      ],
+      "description": "First access gas increase and access lists",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6,
+          "EXP_byte": 50,
+          "SHL": 3,
+          "SHR": 3,
+          "SAR": 3
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512
+        },
+        "storage": {
+          "SLOAD": 800,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_refund": 15000,
+          "SCLEAR_refund": 15000,
+          "SSTORE_clears_refund": 15000,
+          "SLOAD_cold": 2100,
+          "SLOAD_warm": 100,
+          "SSTORE_noop": 100
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 700,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 700,
+          "RETURN": 0,
+          "SUICIDE": 5000,
+          "SUICIDE_refund": 24000,
+          "DELEGATECALL": 700,
+          "EXTCODESIZE": 700,
+          "EXTCODECOPY": 700,
+          "STATICCALL": 700,
+          "RETURNDATASIZE": 2,
+          "RETURNDATACOPY": 3,
+          "REVERT": 0,
+          "CREATE2": 32000,
+          "EXTCODEHASH": 700,
+          "EXTCODESIZE_cold": 2600,
+          "EXTCODESIZE_warm": 100,
+          "EXTCODECOPY_cold": 2600,
+          "EXTCODECOPY_warm": 100,
+          "EXTCODEHASH_cold": 2600,
+          "EXTCODEHASH_warm": 100,
+          "CALL_cold": 2600,
+          "CALL_warm": 100
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "DIFFICULTY": 2,
+          "GASLIMIT": 2,
+          "BALANCE": 700,
+          "CHAINID": 2,
+          "SELFBALANCE": 5,
+          "BALANCE_cold": 2600,
+          "BALANCE_warm": 100
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3,
+          "ECADD": 150,
+          "ECMUL": 6000,
+          "ECPAIRING_base": 45000,
+          "ECPAIRING_pair": 34000,
+          "MODEXP": {
+            "formula": "max(200, floor(mult_complexity * max(8, iterations) / 3))",
+            "note": "With reduced multiplier"
+          },
+          "BLAKE2F": 1
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": 4,
+          "G_txdatanonzero": 16,
+          "G_txcreate": 32000,
+          "G_accesslistaddress": 2400,
+          "G_accessliststorage": 1900
+        }
+      }
+    },
+    "london": {
+      "name": "London",
+      "activationDate": "2021-08-05",
+      "blockNumber": 12965000,
+      "status": "active",
+      "eips": [
+        1559,
+        3198,
+        3529,
+        3541,
+        3554
+      ],
+      "description": "EIP-1559 fee market and BASEFEE opcode",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6,
+          "EXP_byte": 50,
+          "SHL": 3,
+          "SHR": 3,
+          "SAR": 3
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512
+        },
+        "storage": {
+          "SLOAD": 800,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_refund": 15000,
+          "SCLEAR_refund": 15000,
+          "SSTORE_clears_refund": 4800,
+          "SLOAD_cold": 2100,
+          "SLOAD_warm": 100,
+          "SSTORE_noop": 100
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 700,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 700,
+          "RETURN": 0,
+          "SUICIDE": 5000,
+          "SUICIDE_refund": 24000,
+          "DELEGATECALL": 700,
+          "EXTCODESIZE": 700,
+          "EXTCODECOPY": 700,
+          "STATICCALL": 700,
+          "RETURNDATASIZE": 2,
+          "RETURNDATACOPY": 3,
+          "REVERT": 0,
+          "CREATE2": 32000,
+          "EXTCODEHASH": 700,
+          "EXTCODESIZE_cold": 2600,
+          "EXTCODESIZE_warm": 100,
+          "EXTCODECOPY_cold": 2600,
+          "EXTCODECOPY_warm": 100,
+          "EXTCODEHASH_cold": 2600,
+          "EXTCODEHASH_warm": 100,
+          "CALL_cold": 2600,
+          "CALL_warm": 100,
+          "SELFDESTRUCT_refund": 0
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "DIFFICULTY": 2,
+          "GASLIMIT": 2,
+          "BALANCE": 700,
+          "CHAINID": 2,
+          "SELFBALANCE": 5,
+          "BALANCE_cold": 2600,
+          "BALANCE_warm": 100,
+          "BASEFEE": 2
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3,
+          "ECADD": 150,
+          "ECMUL": 6000,
+          "ECPAIRING_base": 45000,
+          "ECPAIRING_pair": 34000,
+          "MODEXP": {
+            "formula": "max(200, floor(mult_complexity * max(8, iterations) / 3))",
+            "note": "With reduced multiplier"
+          },
+          "BLAKE2F": 1
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": 4,
+          "G_txdatanonzero": 16,
+          "G_txcreate": 32000,
+          "G_accesslistaddress": 2400,
+          "G_accessliststorage": 1900
+        }
+      }
+    },
+    "paris": {
+      "name": "Paris (The Merge)",
+      "activationDate": "2022-09-15",
+      "blockNumber": 15537394,
+      "status": "active",
+      "eips": [
+        3675,
+        4399
+      ],
+      "description": "Proof of Stake transition",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6,
+          "EXP_byte": 50,
+          "SHL": 3,
+          "SHR": 3,
+          "SAR": 3
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512
+        },
+        "storage": {
+          "SLOAD": 800,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_refund": 15000,
+          "SCLEAR_refund": 15000,
+          "SSTORE_clears_refund": 4800,
+          "SLOAD_cold": 2100,
+          "SLOAD_warm": 100,
+          "SSTORE_noop": 100
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 700,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 700,
+          "RETURN": 0,
+          "SUICIDE": 5000,
+          "SUICIDE_refund": 24000,
+          "DELEGATECALL": 700,
+          "EXTCODESIZE": 700,
+          "EXTCODECOPY": 700,
+          "STATICCALL": 700,
+          "RETURNDATASIZE": 2,
+          "RETURNDATACOPY": 3,
+          "REVERT": 0,
+          "CREATE2": 32000,
+          "EXTCODEHASH": 700,
+          "EXTCODESIZE_cold": 2600,
+          "EXTCODESIZE_warm": 100,
+          "EXTCODECOPY_cold": 2600,
+          "EXTCODECOPY_warm": 100,
+          "EXTCODEHASH_cold": 2600,
+          "EXTCODEHASH_warm": 100,
+          "CALL_cold": 2600,
+          "CALL_warm": 100,
+          "SELFDESTRUCT_refund": 0
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "GASLIMIT": 2,
+          "BALANCE": 700,
+          "CHAINID": 2,
+          "SELFBALANCE": 5,
+          "BALANCE_cold": 2600,
+          "BALANCE_warm": 100,
+          "BASEFEE": 2,
+          "PREVRANDAO": 2
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3,
+          "ECADD": 150,
+          "ECMUL": 6000,
+          "ECPAIRING_base": 45000,
+          "ECPAIRING_pair": 34000,
+          "MODEXP": {
+            "formula": "max(200, floor(mult_complexity * max(8, iterations) / 3))",
+            "note": "With reduced multiplier"
+          },
+          "BLAKE2F": 1
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": 4,
+          "G_txdatanonzero": 16,
+          "G_txcreate": 32000,
+          "G_accesslistaddress": 2400,
+          "G_accessliststorage": 1900
+        }
+      }
+    },
+    "shanghai": {
+      "name": "Shanghai",
+      "activationDate": "2023-04-12",
+      "blockNumber": 17034870,
+      "status": "active",
+      "eips": [
+        3651,
+        3855,
+        3860,
+        4895
+      ],
+      "description": "Validator withdrawals and PUSH0",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6,
+          "EXP_byte": 50,
+          "SHL": 3,
+          "SHR": 3,
+          "SAR": 3
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3,
+          "PUSH0": 2
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512,
+          "MCOPY": 3
+        },
+        "storage": {
+          "SLOAD": 2100,
+          "SLOAD_cold": 2100,
+          "SLOAD_warm": 100,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_clear_refund": 4800,
+          "SSTORE_noop": 100
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 700,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 700,
+          "RETURN": 0,
+          "SUICIDE": 5000,
+          "SUICIDE_refund": 24000,
+          "DELEGATECALL": 700,
+          "EXTCODESIZE": 700,
+          "EXTCODECOPY": 700,
+          "STATICCALL": 700,
+          "RETURNDATASIZE": 2,
+          "RETURNDATACOPY": 3,
+          "REVERT": 0,
+          "CREATE2": 32000,
+          "EXTCODEHASH": 700,
+          "EXTCODESIZE_cold": 2600,
+          "EXTCODESIZE_warm": 100,
+          "EXTCODECOPY_cold": 2600,
+          "EXTCODECOPY_warm": 100,
+          "EXTCODEHASH_cold": 2600,
+          "EXTCODEHASH_warm": 100,
+          "CALL_cold": 2600,
+          "CALL_warm": 100,
+          "SELFDESTRUCT_refund": 0,
+          "SELFDESTRUCT": 5000
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "GASLIMIT": 2,
+          "BALANCE": 700,
+          "CHAINID": 2,
+          "SELFBALANCE": 5,
+          "BALANCE_cold": 2600,
+          "BALANCE_warm": 100,
+          "BASEFEE": 2,
+          "PREVRANDAO": 2
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3,
+          "ECADD": 150,
+          "ECMUL": 6000,
+          "ECPAIRING_base": 45000,
+          "ECPAIRING_pair": 34000,
+          "MODEXP": {
+            "formula": "max(200, floor(mult_complexity * max(8, iterations) / 3))",
+            "note": "With reduced multiplier"
+          },
+          "BLAKE2F": 1
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": 4,
+          "G_txdatanonzero": 16,
+          "G_txcreate": 32000,
+          "G_accesslistaddress": 2400,
+          "G_accessliststorage": 1900
+        }
+      }
+    },
+    "cancun": {
+      "name": "Cancun",
+      "activationDate": "2024-03-13",
+      "blockNumber": 19426587,
+      "status": "active",
+      "eips": [
+        1153,
+        4788,
+        4844,
+        5656,
+        6780,
+        7516
+      ],
+      "description": "Blob transactions for L2 scaling",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6,
+          "EXP_byte": 50,
+          "SHL": 3,
+          "SHR": 3,
+          "SAR": 3
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3,
+          "PUSH0": 2
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512,
+          "MCOPY": 3
+        },
+        "storage": {
+          "SLOAD": 2100,
+          "SLOAD_cold": 2100,
+          "SLOAD_warm": 100,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_clear_refund": 4800,
+          "SSTORE_noop": 100,
+          "TLOAD": 100,
+          "TSTORE": 100
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 700,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 700,
+          "RETURN": 0,
+          "SUICIDE": 5000,
+          "SUICIDE_refund": 24000,
+          "DELEGATECALL": 700,
+          "EXTCODESIZE": 700,
+          "EXTCODECOPY": 700,
+          "STATICCALL": 700,
+          "RETURNDATASIZE": 2,
+          "RETURNDATACOPY": 3,
+          "REVERT": 0,
+          "CREATE2": 32000,
+          "EXTCODEHASH": 700,
+          "EXTCODESIZE_cold": 2600,
+          "EXTCODESIZE_warm": 100,
+          "EXTCODECOPY_cold": 2600,
+          "EXTCODECOPY_warm": 100,
+          "EXTCODEHASH_cold": 2600,
+          "EXTCODEHASH_warm": 100,
+          "CALL_cold": 2600,
+          "CALL_warm": 100,
+          "SELFDESTRUCT_refund": 0,
+          "SELFDESTRUCT": 5000
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "GASLIMIT": 2,
+          "BALANCE": 700,
+          "CHAINID": 2,
+          "SELFBALANCE": 5,
+          "BALANCE_cold": 2600,
+          "BALANCE_warm": 100,
+          "BASEFEE": 2,
+          "PREVRANDAO": 2,
+          "BLOBHASH": 3
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3,
+          "ECADD": 150,
+          "ECMUL": 6000,
+          "ECPAIRING_base": 45000,
+          "ECPAIRING_pair": 34000,
+          "MODEXP": {
+            "formula": "max(200, floor(mult_complexity * max(8, iterations) / 3))",
+            "note": "With reduced multiplier"
+          },
+          "BLAKE2F": 1,
+          "KZG_POINT_EVALUATION": 50000
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": 4,
+          "G_txdatanonzero": 16,
+          "G_txcreate": 32000,
+          "G_accesslistaddress": 2400,
+          "G_accessliststorage": 1900
+        },
+        "blob": {
+          "G_blobhash": 3,
+          "G_blob": 131072,
+          "TARGET_BLOB_GAS_PER_BLOCK": 393216,
+          "MAX_BLOB_GAS_PER_BLOCK": 786432,
+          "MIN_BLOB_BASE_FEE": 1,
+          "BLOB_BASE_FEE_UPDATE_FRACTION": 3338477
+        }
+      }
+    },
+    "prague": {
+      "name": "Prague",
+      "activationDate": "2025-01-01",
+      "blockNumber": null,
+      "status": "planned",
+      "eips": [
+        2537,
+        2935,
+        6110,
+        7002,
+        7251,
+        7549,
+        7594,
+        7623,
+        7685,
+        7692,
+        7698,
+        7702
+      ],
+      "description": "Calldata repricing and account abstraction",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6,
+          "EXP_byte": 50,
+          "SHL": 3,
+          "SHR": 3,
+          "SAR": 3
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3,
+          "PUSH0": 2
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512,
+          "MCOPY": 3
+        },
+        "storage": {
+          "SLOAD": 2100,
+          "SLOAD_cold": 2100,
+          "SLOAD_warm": 100,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_clear_refund": 4800,
+          "SSTORE_noop": 100,
+          "TLOAD": 100,
+          "TSTORE": 100
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 700,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 700,
+          "RETURN": 0,
+          "SUICIDE": 5000,
+          "SUICIDE_refund": 24000,
+          "DELEGATECALL": 700,
+          "EXTCODESIZE": 700,
+          "EXTCODECOPY": 700,
+          "STATICCALL": 700,
+          "RETURNDATASIZE": 2,
+          "RETURNDATACOPY": 3,
+          "REVERT": 0,
+          "CREATE2": 32000,
+          "EXTCODEHASH": 700,
+          "EXTCODESIZE_cold": 2600,
+          "EXTCODESIZE_warm": 100,
+          "EXTCODECOPY_cold": 2600,
+          "EXTCODECOPY_warm": 100,
+          "EXTCODEHASH_cold": 2600,
+          "EXTCODEHASH_warm": 100,
+          "CALL_cold": 2600,
+          "CALL_warm": 100,
+          "SELFDESTRUCT_refund": 0,
+          "SELFDESTRUCT": 5000
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "GASLIMIT": 2,
+          "BALANCE": 700,
+          "CHAINID": 2,
+          "SELFBALANCE": 5,
+          "BALANCE_cold": 2600,
+          "BALANCE_warm": 100,
+          "BASEFEE": 2,
+          "PREVRANDAO": 2,
+          "BLOBHASH": 3
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3,
+          "ECADD": 150,
+          "ECMUL": 6000,
+          "ECPAIRING_base": 45000,
+          "ECPAIRING_pair": 34000,
+          "MODEXP": {
+            "formula": "max(200, floor(mult_complexity * max(8, iterations) / 3))",
+            "note": "With reduced multiplier"
+          },
+          "BLAKE2F": 1,
+          "KZG_POINT_EVALUATION": 50000,
+          "BLS12_381_G1_ADD": 500,
+          "BLS12_381_G1_MUL": 12000,
+          "BLS12_381_G1_MULTIEXP": {
+            "formula": "12000 * k * discount_factor"
+          },
+          "BLS12_381_G2_ADD": 800,
+          "BLS12_381_G2_MUL": 45000,
+          "BLS12_381_G2_MULTIEXP": {
+            "formula": "45000 * k * discount_factor"
+          },
+          "BLS12_381_PAIRING": {
+            "base": 65000,
+            "perPair": 43000
+          },
+          "BLS12_381_MAP_FP_TO_G1": 5500,
+          "BLS12_381_MAP_FP2_TO_G2": 23800
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": null,
+          "G_txdatanonzero": null,
+          "G_txcreate": 32000,
+          "G_accesslistaddress": 2400,
+          "G_accessliststorage": 1900,
+          "G_calldatatoken": 4,
+          "G_calldatafloor": 10
+        },
+        "blob": {
+          "G_blobhash": 3,
+          "G_blob": 131072,
+          "TARGET_BLOB_GAS_PER_BLOCK": 393216,
+          "MAX_BLOB_GAS_PER_BLOCK": 786432,
+          "MIN_BLOB_BASE_FEE": 1,
+          "BLOB_BASE_FEE_UPDATE_FRACTION": 3338477
+        },
+        "authorization": {
+          "G_authorization": 10600,
+          "G_ecdsa_verify": 3000,
+          "G_nonce_check": 2100,
+          "G_nonce_update": 5000,
+          "G_authorization_overhead": 500
+        }
+      }
+    },
+    "osaka": {
+      "name": "Osaka",
+      "activationDate": null,
+      "blockNumber": null,
+      "status": "proposed",
+      "eips": [],
+      "description": "Authorization optimization",
+      "gasCosts": {
+        "base": {
+          "G_zero": 0,
+          "G_base": 2,
+          "G_verylow": 3,
+          "G_low": 5,
+          "G_mid": 8,
+          "G_high": 10
+        },
+        "arithmetic": {
+          "ADD": 3,
+          "MUL": 5,
+          "SUB": 3,
+          "DIV": 5,
+          "SDIV": 5,
+          "MOD": 5,
+          "SMOD": 5,
+          "ADDMOD": 8,
+          "MULMOD": 8,
+          "EXP": 10,
+          "SIGNEXTEND": 5,
+          "LT": 3,
+          "GT": 3,
+          "SLT": 3,
+          "SGT": 3,
+          "EQ": 3,
+          "ISZERO": 3,
+          "AND": 3,
+          "OR": 3,
+          "XOR": 3,
+          "NOT": 3,
+          "BYTE": 3,
+          "SHA3": 30,
+          "SHA3_word": 6,
+          "EXP_byte": 50,
+          "SHL": 3,
+          "SHR": 3,
+          "SAR": 3
+        },
+        "stack": {
+          "POP": 2,
+          "PUSH": 3,
+          "DUP": 3,
+          "SWAP": 3,
+          "PUSH0": 2
+        },
+        "memory": {
+          "MLOAD": 3,
+          "MSTORE": 3,
+          "MSTORE8": 3,
+          "G_memory": 3,
+          "G_quadraticmemdenom": 512,
+          "MCOPY": 3
+        },
+        "storage": {
+          "SLOAD": 2100,
+          "SLOAD_cold": 2100,
+          "SLOAD_warm": 100,
+          "SSTORE_set": 20000,
+          "SSTORE_reset": 5000,
+          "SSTORE_clear_refund": 4800,
+          "SSTORE_noop": 100,
+          "TLOAD": 100,
+          "TSTORE": 100
+        },
+        "flow": {
+          "JUMP": 8,
+          "JUMPI": 10,
+          "PC": 2,
+          "MSIZE": 2,
+          "GAS": 2,
+          "JUMPDEST": 1
+        },
+        "system": {
+          "CREATE": 32000,
+          "CALL": 700,
+          "CALL_value_transfer": 9000,
+          "CALL_new_account": 25000,
+          "CALLCODE": 700,
+          "RETURN": 0,
+          "SUICIDE": 5000,
+          "SUICIDE_refund": 24000,
+          "DELEGATECALL": 700,
+          "EXTCODESIZE": 700,
+          "EXTCODECOPY": 700,
+          "STATICCALL": 700,
+          "RETURNDATASIZE": 2,
+          "RETURNDATACOPY": 3,
+          "REVERT": 0,
+          "CREATE2": 32000,
+          "EXTCODEHASH": 700,
+          "EXTCODESIZE_cold": 2600,
+          "EXTCODESIZE_warm": 100,
+          "EXTCODECOPY_cold": 2600,
+          "EXTCODECOPY_warm": 100,
+          "EXTCODEHASH_cold": 2600,
+          "EXTCODEHASH_warm": 100,
+          "CALL_cold": 2600,
+          "CALL_warm": 100,
+          "SELFDESTRUCT_refund": 0,
+          "SELFDESTRUCT": 5000
+        },
+        "blockchain": {
+          "BLOCKHASH": 20,
+          "COINBASE": 2,
+          "TIMESTAMP": 2,
+          "NUMBER": 2,
+          "GASLIMIT": 2,
+          "BALANCE": 700,
+          "CHAINID": 2,
+          "SELFBALANCE": 5,
+          "BALANCE_cold": 2600,
+          "BALANCE_warm": 100,
+          "BASEFEE": 2,
+          "PREVRANDAO": 2,
+          "BLOBHASH": 3
+        },
+        "precompiles": {
+          "ECRECOVER": 3000,
+          "SHA256": 60,
+          "SHA256_word": 12,
+          "RIPEMD160": 600,
+          "RIPEMD160_word": 120,
+          "IDENTITY": 15,
+          "IDENTITY_word": 3,
+          "ECADD": 150,
+          "ECMUL": 6000,
+          "ECPAIRING_base": 45000,
+          "ECPAIRING_pair": 34000,
+          "MODEXP": {
+            "formula": "max(200, floor(mult_complexity * max(8, iterations) / 3))",
+            "note": "With reduced multiplier"
+          },
+          "BLAKE2F": 1,
+          "KZG_POINT_EVALUATION": 50000,
+          "BLS12_381_G1_ADD": 500,
+          "BLS12_381_G1_MUL": 12000,
+          "BLS12_381_G1_MULTIEXP": {
+            "formula": "12000 * k * discount_factor"
+          },
+          "BLS12_381_G2_ADD": 800,
+          "BLS12_381_G2_MUL": 45000,
+          "BLS12_381_G2_MULTIEXP": {
+            "formula": "45000 * k * discount_factor"
+          },
+          "BLS12_381_PAIRING": {
+            "base": 65000,
+            "perPair": 43000
+          },
+          "BLS12_381_MAP_FP_TO_G1": 5500,
+          "BLS12_381_MAP_FP2_TO_G2": 23800
+        },
+        "transaction": {
+          "G_transaction": 21000,
+          "G_txdatazero": null,
+          "G_txdatanonzero": null,
+          "G_txcreate": 32000,
+          "G_accesslistaddress": 2400,
+          "G_accessliststorage": 1900,
+          "G_calldatatoken": 4,
+          "G_calldatafloor": 10
+        },
+        "blob": {
+          "G_blobhash": 3,
+          "G_blob": 131072,
+          "TARGET_BLOB_GAS_PER_BLOCK": 393216,
+          "MAX_BLOB_GAS_PER_BLOCK": 786432,
+          "MIN_BLOB_BASE_FEE": 1,
+          "BLOB_BASE_FEE_UPDATE_FRACTION": 3338477
+        },
+        "authorization": {
+          "G_authorization": 5400,
+          "G_authorization_optimized": 5400,
+          "G_ecdsa_verify": 2000,
+          "G_nonce_check": 100,
+          "G_nonce_update": 3000,
+          "G_authorization_overhead": 300,
+          "G_batch_optimization": "n <= 3 ? n : 3 + 0.8*(n-3) for n <= 10"
+        }
+      }
+    }
+  }
+}

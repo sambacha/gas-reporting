@@ -1,0 +1,7 @@
+[project]
+name = "gas-schedule"
+version = "0.1.0"
+description = "Ethereum Gas and Transaction Accounting Schedules ad Reports"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
