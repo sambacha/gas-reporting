@@ -1,0 +1,14 @@
+# -*- mode: gitattributes; -*-
+.gas-snapshot linguist-language=Julia
+
+*.md    diff=markdown
+
+VERSION   export-subst
+git-hash  export-subst
+
+# git archive ignore 
+/.github            export-ignore
+/.editorconfig      export-ignore
+/.gitattributes     export-ignore
+/.gitignore         export-ignore
+/test_files         export-ignore
